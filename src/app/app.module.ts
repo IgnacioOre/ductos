@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { PedidosComponent } from './sistema/pedidos/pedidos.component';
 import { AddPedidoComponent } from './add-pedido/add-pedido.component';
 import { HomeComponent } from './home/home.component';
+import { BtnPedidoComponent } from './home/menuItems/btn-pedido/btn-pedido.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     PedidosComponent,
     AddPedidoComponent,
-    HomeComponent
+    HomeComponent,
+    BtnPedidoComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
+      {path: 'seguimiento', component: BtnPedidoComponent},
       {path: 'login', component: LoginComponent},
       {path: 'pedidos', component: PedidosComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'}
