@@ -8,12 +8,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PedidosComponent } from './sistema/pedidos/pedidos.component';
+import { AddPedidoComponent } from './add-pedido/add-pedido.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PedidosComponent
+    PedidosComponent,
+    AddPedidoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +26,10 @@ import { PedidosComponent } from './sistema/pedidos/pedidos.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      {path: 'home', component: HomeComponent},
       {path: 'login', component: LoginComponent},
       {path: 'pedidos', component: PedidosComponent},
-      {path: '', redirectTo: 'login', pathMatch: 'full'}
+      {path: '', redirectTo: 'home', pathMatch: 'full'}
     ])
   ],
   providers: [],

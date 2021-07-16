@@ -1,0 +1,83 @@
+<div class= "modal" [ngStyle]="{'display': addPedidoService.oculto}" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class= "modal-content">
+            <!--Empieza el formulario addPedidoService.oculto-->
+            <form [formGroup]='formPedido' (ngSubmit)="saveData()" novalidate>
+            <!--Modal Header-->
+            <div class="modal-header">
+                <h4 class="modal-title">Crear Pedido</h4>
+                <button (click)="ocultarModal()" type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!--Modal Body-->
+            <div class="modal-body">
+                <!--Fecha de ingreso-->
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Fecha de ingreso</label>
+                    <div class="col-8">
+                        <input class="form-control" formControlName="fechaDeIngreso" type="date" >
+                    </div>
+                </div>
+                <!--Fecha de entrega-->
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Fecha de entrega</label>
+                    <div class="col-8">
+                        <input class="form-control" formControlName="fechaDeEntrega" type="date" >
+                    </div>
+                </div>
+                <!--Estado-->
+                <div class="form-group row">
+                    <label class="col-4 col-form-label" type="dropdown">Estado</label>
+                    <div class="col-8">
+                        <select class="form-control" formControlName="estado"> 
+                            <option value = "recibido" selected>Recibido</option>
+                            <option value = "enProceso" selected>En proceso</option>
+                            <option value = "finalizado" selected>Finalizado</option>
+                          </select>
+                    </div>
+                </div>
+                <!--Telefono-->
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Teléfono</label>
+                    <div class="col-8">
+                        <input class="form-control" type="tel" formControlName="telefono" placeholder="984175628">
+                    </div>
+                </div>
+                <!--Presupuesto-->
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Presupuesto</label>
+                    <div class="col-8">
+                        <input class="form-control" type="number" formControlName="presupuesto" placeholder="$">
+                    </div>
+                </div>
+                <!--Correo-->
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Correo</label>
+                    <div class="col-8">
+                        <input class="form-control" type="email" formControlName="correo" placeholder="victor@gmail.com">
+                    </div>
+                </div>
+            <!--Indicaciones-->
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Indicaciones</label>
+                <div class="col-8">
+                    <input class="form-control" type="text" formControlName="indicaciones" >
+                </div>
+            </div>
+            <!--Adjuntar Imagen-->
+            <div class="form-group">
+                <label for="exampleFormControlFile1" class="col-4 col-form-label">Adjuntar Imagen</label>
+                <div class="col-8">
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+            </div>
+            <!--Modal footer-->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button (click)="ocultarModal()" type="button" class="btn btn-danger">Cerrar</button>
+            </div>
+        </div>
+        </form>
+        </div>
+    </div>
+</div>

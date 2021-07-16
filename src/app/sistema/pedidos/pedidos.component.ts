@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddPedidoService } from 'src/app/add-pedido/add-pedido-service';
 
 @Component({
   selector: 'app-pedidos',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private addPedidoService:AddPedidoService) { }
 
   ngOnInit(): void {
+  }
+
+  abrirModal(){
+    console.log("estoy en abrirModal de app.component.ts");
+    this.addPedidoService.mostrarModal();
   }
 
 }
