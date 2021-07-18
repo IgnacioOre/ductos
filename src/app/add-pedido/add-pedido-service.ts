@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Pedido } from '../IPedido';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,7 @@ export class AddPedidoService{
 
   public oculto: string = '';
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
 
   ocultarModal() {
     console.log('ocultar modal');
@@ -17,5 +19,9 @@ export class AddPedidoService{
   mostrarModal(){
     this.oculto = 'block';
     console.log('mostrar modal');
+  }
+
+  addPedido(pedido: Pedido) {
+    return this.http.post('http://localhost:3000/pedido', pedido);
   }
 }

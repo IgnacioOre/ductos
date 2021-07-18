@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Pedido } from '../IPedido';
 import { AddPedidoService } from './add-pedido-service';
 
 @Component({
@@ -24,7 +25,11 @@ export class AddPedidoComponent implements OnInit {
   }
 
   saveData(){
-    console.log(this.formPedido.value);
+    var pedido: Pedido = this.formPedido.value;
+    console.log(pedido);
+    this.addPedidoService.addPedido(pedido).subscribe(res =>{
+      console.log(res);
+    });
   }
 
   ngOnInit(): void {
