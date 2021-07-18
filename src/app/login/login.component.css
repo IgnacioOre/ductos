@@ -9,6 +9,12 @@
     text-align: center;
     line-height: 300%;
   }
+
+  .card {
+    margin: 0 auto; /* Added /
+    float: none; / Added /
+    margin-bottom: 10px; / Added */
+}
   
   .omb_login .omb_socialButtons a {
     color: white; /* In yourUse @body-bg*/ 
@@ -65,4 +71,76 @@
     }		
   } 
   
+
+  body {    
+    font-family: 'Kanit', sans-serif;
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1.4em;
+    margin: 0;
+}
+
+h1{
+    color: rgb(0, 0, 0);
+    line-height: 1.3em;
+    font-size: 1.2rem;
+}
+
+.header{
+    background: linear-gradient(180deg, black, gray);
+    color: white;
+    padding: 2rem 0;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+    .header a {
+        color: white;
+        text-decoration: none;
+    }
+
+.logo-nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .navigation ul li {
+        display: inline-block;
+    }
+
+    .navigation ul li a {
+        display: block;
+        padding: 0.5rem 1rem;
+        transition: all 0.4s linear;
+        border-radius: 5px;
+    }
+    
+    .navigation ul li a:hover {
+        background: #4a4a4a
+    }
+
+.main {
+    padding-top: 8rem;
+}
+
+.text-center {
+    background: #4a4a4a;
+    font-size: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    text-align: center;
+    color: white;
+    margin-top: 4rem;
+}
   
