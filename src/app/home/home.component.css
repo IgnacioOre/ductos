@@ -13,7 +13,7 @@ h1{
 }
 
 .header{
-    background: #333;
+    background: linear-gradient(180deg, black, gray);
     color: white;
     padding: 2rem 0;
 

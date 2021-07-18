@@ -24,4 +24,9 @@ export class AddPedidoService{
   addPedido(pedido: Pedido) {
     return this.http.post('http://localhost:3000/pedido', pedido);
   }
+
+  generarCodigoDePedido(){
+
+    
+  }
 }
