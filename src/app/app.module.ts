@@ -11,6 +11,7 @@ import { PedidosComponent } from './sistema/pedidos/pedidos.component';
 import { AddPedidoComponent } from './add-pedido/add-pedido.component';
 import { HomeComponent } from './home/home.component';
 import { BtnPedidoComponent } from './home/menuItems/btn-pedido/btn-pedido.component';
+import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BtnPedidoComponent } from './home/menuItems/btn-pedido/btn-pedido.compo
     PedidosComponent,
     AddPedidoComponent,
     HomeComponent,
-    BtnPedidoComponent
+    BtnPedidoComponent,
+    ConfirmacionComponent
   ],
   imports: [
     BrowserModule,
