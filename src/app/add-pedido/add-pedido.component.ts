@@ -30,6 +30,7 @@ export class AddPedidoComponent implements OnInit {
     this.addPedidoService.addPedido(pedido).subscribe(res =>{
       console.log(res);
     });
+    this.ocultarModal();
   }
 
   ngOnInit(): void {
