@@ -5,11 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './btn-pedido.component.html',
   styleUrls: ['./btn-pedido.component.css']
 })
-export class BtnPedidoComponent implements OnInit {
-
+export class BtnPedidoComponent implements OnInit {  
+  
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
+  showDiv = {
+    info: false
+  }
 }
