@@ -68,5 +68,6 @@ export class AddPedidoComponent implements OnInit {
     console.log("Estoy dentro de mostrar mensaje app component");
     this.mostrarConfirmacionService.mostrarModal(this.formPedido.controls['codigo'].value);
   }
+   
 
 }
