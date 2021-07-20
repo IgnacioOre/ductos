@@ -23,8 +23,47 @@
 }
 
 .pageContent {
-    padding: 1.5rem 10rem;
+    padding: 0.5rem 10rem;
 }
+
+.card-container{    
+    
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+    padding-bottom: 3rem;
+}
+
+/* CSS PARA CARD CON IMAGEN DE QUIENES SOMOS  */
+
+.box .text {
+    position: absolute;
+    text-align: center;
+    margin: 50px 0;
+    background: #297ea583;
+    border-radius: 25px;
+    color: #fff;
+    width: 35%; /* Set the width of the positioned div */
+    height: 55%;
+    font-size: 3em;
+}
+
+.box2 .text2 {
+    position: absolute;
+    text-align: center;
+    margin: 80px 400px;
+    background: #297ea583;
+    border-radius: 12px;
+    color: #fff;
+    width: 55%; /* Set the width of the positioned div */
+    height: 30%;
+    font-size: 1.2em;
+}
+
+/*  FIN CSS PARA CARD CON IMAGEN DE QUIENES SOMOS  */
+
+
+
 
 /* CARRUSEL DE IMAGENES */
 
