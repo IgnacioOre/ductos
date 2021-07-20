@@ -6,21 +6,33 @@
     }
 }
 
-.footer {
-    padding: 0 8%;
+.footer {    
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;    
     font-size: x-small;
     color: black
 }
 
+.main {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    width: 100% !important;
+}
+
+.pageContent {
+    padding: 1.5rem 10rem;
+}
+
 /* CARRUSEL DE IMAGENES */
 
+
+
 .cardCarrusel {
-    margin: 0 auto; 
-    height: auto;
-    width: auto;
-    /* Added /
-    float: none; / Added /
-    margin-bottom: 10px; / Added */
+    display: flex;
+    justify-content: center;
 }
 
 /* Add rounded corners to the top left and the top right corner of the image */
