@@ -27,4 +27,7 @@ export class PedidosService {
     console.log('mostrar modal');
   }
 
+  deletePedido(){
+    return this.http.delete('http://localhost:3000/pedido');
+  }
 }
