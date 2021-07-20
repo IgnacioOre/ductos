@@ -64,7 +64,7 @@
                                     <span id="input-header">Ingrese el número del pedido</span>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input #inputOrderId type="text" id="order_id" placeholder="123456AB" maxlength="8"
+                                    <input #inputOrderId type="text" id="order_id" placeholder=" Formato: 123456AB" maxlength="8"
                                         name="order_id" required>
                                 </div>
                             </div>
@@ -112,7 +112,7 @@
     
                         <div class="col-4">
                             <span id="heading">Precio</span><br> 
-                            <span id="details">{{consulta?.presupuesto}}</span>
+                            <span id="details">$ {{consulta?.presupuesto}}</span>
                         </div>
                     </div>       
                 </div>
@@ -123,7 +123,7 @@
                             <span><strong>Estado del pedido: </strong>{{consulta?.estadoDelPedido}}</span>
                         </div>
                         <div class="col-6">
-                            <span><strong>Total: </strong>{{consulta?.presupuesto}}</span>
+                            <span><strong>Total: </strong>$ {{consulta?.presupuesto}}</span>
                         </div>
                     </div>
                 </div>

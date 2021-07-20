@@ -1,34 +1,19 @@
-body {    
-    font-family: 'Kanit', sans-serif;
-    color: white;
-    font-size: 1.2rem;
-    line-height: 1.4em;
-    margin: 0;
+@import url(https://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+@media(max-width:768px) {
+    .card {
+        width: 90%
+    }
 }
 
-html {
-    min-height: 100%;
-    position: relative;
-  }
-  body {
-    margin: 0;
-    margin-bottom: 40px;
-  }
-  footer {
-    background-color: black;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    color: white;
-  }
-
-
-h1{
-    color: rgb(0, 0, 0);
-    line-height: 1.3em;
-    font-size: 1.2rem;
+.footer {
+    padding: 0 8%;
+    font-size: x-small;
+    color: black
 }
+
+/* CARRUSEL DE IMAGENES */
+
 .cardCarrusel {
     margin: 0 auto; 
     height: auto;
@@ -37,73 +22,15 @@ h1{
     float: none; / Added /
     margin-bottom: 10px; / Added */
 }
-.header{
-    background: linear-gradient(180deg, black, gray);
-    color: white;
-    padding: 2rem 0;
 
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+    border-radius: 5px 5px 0 0;
 }
-    .header a {
-        color: white;
-        text-decoration: none;
-    }
-
-.logo-nav-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
     color: black;
-  }
-  
-  /* Add rounded corners to the top left and the top right corner of the image */
-  img {
-    border-radius: 5px 5px 0 0;
-  }
-
-.navigation ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-    .navigation ul li {
-        display: inline-block;
-    }
-
-    .navigation ul li a {
-        display: block;
-        padding: 0.5rem 1rem;
-        transition: all 0.4s linear;
-        border-radius: 5px;
-    }
-    
-    .navigation ul li a:hover {
-        background: #4a4a4a
-    }
-
-.main {
-    padding-top: 8rem;
-}
-
-.text-center {
-    background: #4a4a4a;
-    font-size: 1rem;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 55px;
-    text-align: center;
-    color: white;
-    margin-top: 4rem;
 }

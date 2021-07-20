@@ -11,6 +11,7 @@ export class BtnPedidoComponent implements OnInit {
   constructor(private btnService: BtnPedidoServiceService) { }
 
     consulta: any;
+    pedidoHallado: any;
 
    ngOnInit(): void {
     
