@@ -24,6 +24,10 @@ export class AddPedidoService{
   addPedido(pedido: Pedido) {
     return this.http.post('http://localhost:3000/pedido', pedido);
   }
+  
+  addImagen(imagen: any){
+    return this.http.post('http://localhost:3000/pedido/:id', imagen);
+  }
 
   generarCodigoDePedido(){
 

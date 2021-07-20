@@ -4,9 +4,10 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    //"noUnusedLocals": false, //Nuevo
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": true, //Cambie de true a false originalmente es true
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,

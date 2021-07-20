@@ -68,7 +68,10 @@
             <div class="form-group">
                 <label for="exampleFormControlFile1" class="col-4 col-form-label">Adjuntar Imagen</label>
                 <div class="col-8">
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <input enctype="multipart/form-data" (change)="capturarFile($event)" type="file" formControlName="URLImagen" class="form-control-file" id="exampleFormControlFile1" ><!--formControlName="URLImagen"-->
+                </div>
+                <div *ngIf="previsualizacion">
+                    <img [src]="previsualizacion" width="100px">
                 </div>
             </div>
             <!--Modal footer-->

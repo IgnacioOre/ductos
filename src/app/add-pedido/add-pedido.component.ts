@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmacionComponent } from '../confirmacion/confirmacion.component';
@@ -14,8 +15,13 @@ export class AddPedidoComponent implements OnInit {
 
   formPedido: FormGroup;
   codigo: String= "";
+  public archivos: any = [];
+  public previsualizacion: string='';
+  id: string="nombre";
+  nombre: string ="";
+  url: string ="";
 
-  constructor(public addPedidoService: AddPedidoService, private formBuilder: FormBuilder, public mostrarConfirmacionService: MostrarConfirmacionService) { 
+  constructor(public addPedidoService: AddPedidoService, private formBuilder: FormBuilder, public mostrarConfirmacionService: MostrarConfirmacionService, private http: HttpClient) { 
     this.formPedido = this.formBuilder.group({
       codigo: this.generarCodigo(),
       fechaDeIngreso: ['',[Validators.required]],
@@ -25,7 +31,8 @@ export class AddPedidoComponent implements OnInit {
       presupuesto: ['',[Validators.required]],
       correo : ['',[Validators.required]],
       indicaciones: ['',[Validators.required]],
-      URLImagen:""
+      URLImagen: ['localhost:3000/pedidos/',[Validators.required]]
+      
     });
   }
 
@@ -36,6 +43,29 @@ export class AddPedidoComponent implements OnInit {
       console.log(res);
     });
     this.ocultarModal();
+  }
+
+  capturarFile(event:any): any {
+    
+    const archivoCapturado = event.target.files[0];
+    console.log("archivo Capturadooo", archivoCapturado);
+    this.nombre = archivoCapturado.name;
+    console.log("nombre", this.nombre);
+    this.url = `localhost:3000/pedidos/${this.nombre}`;
+    console.log("La url", this.url);
+    const uploadData = new FormData;
+    uploadData.append('archivos', archivoCapturado, archivoCapturado.name);
+
+    var imagen : Pedido = this.formPedido.get('URLImagen')?.value;
+    this.http.post(`http://localhost:3000/upload/pedido/${this.nombre}`, uploadData).subscribe((res: any) =>{
+      
+      this.formPedido.get('URLImagen')?.setValue(`${res.path}`);  
+      console.log(res);
+
+      console.log("Este es res path", res.path);
+      
+    });
+
   }
 
   ngOnInit(): void {

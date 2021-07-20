@@ -6,4 +6,5 @@ export interface Pedido {
     presupuesto: number;
     email: string;
     indicaciones: string;
+    URLImagen: string;
 };
