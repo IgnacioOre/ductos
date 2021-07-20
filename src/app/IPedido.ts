@@ -1,7 +1,8 @@
 export interface Pedido {
+    pedidoId: number;
     fechaIngreso: Date;
     fechaEntrega: Date;
-    estado: string;
+    estadoDelPedido: string;
     telefono: string;
     presupuesto: number;
     email: string;

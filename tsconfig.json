@@ -6,6 +6,7 @@
     "outDir": "./dist/out-tsc",
     //"noUnusedLocals": false, //Nuevo
     "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false,
     "strict": true,
     "noImplicitReturns": true, //Cambie de true a false originalmente es true
     "noFallthroughCasesInSwitch": true,

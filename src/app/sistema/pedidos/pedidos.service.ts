@@ -8,10 +8,26 @@ import { Pedido } from 'src/app/IPedido';
   providedIn: 'root'
 })
 export class PedidosService {
-  
+  public oculto : string = '';
+  public pedidoActual : Pedido;
   constructor(private http : HttpClient) { }
 
   getPedidos(): Observable<Pedido[]> {
     return this.http.get('http://localhost:3000/pedido').pipe(map((res: any) => res.data));
+  }
+
+  ocultarModal() {
+    console.log('ocultar modal');
+    this.oculto= '';
+  }
+
+  mostrarModal(pedido : Pedido){
+    this.oculto = 'block';
+    this.pedidoActual = pedido;
+    console.log('mostrar modal');
+  }
+
+  deletePedido(){
+    return this.http.delete('http://localhost:3000/pedido');
   }
 }
