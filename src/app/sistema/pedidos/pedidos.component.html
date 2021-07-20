@@ -92,7 +92,7 @@
                       <td>
                         <div class="btn-toolbar">
                           <button type="button" class="btn btn-primary" (click)="getPedidos()" id="botones">Detalle</button>
-                          <button class="btn btn-warning" type="button" id="botones" >Editar</button>
+                          <button class="btn btn-warning" type="button" id="botones" (click)="abrirModalEditar(item)">Editar</button>
                           <button class="btn btn-danger" type="button" id="botones">Eliminar</button>
                       
                         </div>
@@ -107,3 +107,4 @@
   </div>
 </div>
 <app-add-pedido></app-add-pedido>
+<app-edit-pedido *ngIf="pedidosService.oculto == 'block'"></app-edit-pedido>

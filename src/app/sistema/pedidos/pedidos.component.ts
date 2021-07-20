@@ -11,7 +11,7 @@ import { PedidosService } from './pedidos.service';
 export class PedidosComponent implements OnInit {
   pedidosCargados : boolean = false;
   pedidos : Pedido[] = [];
-  constructor(private addPedidoService:AddPedidoService, private pedidosService: PedidosService) { }
+  constructor(private addPedidoService:AddPedidoService, public pedidosService: PedidosService) { }
   
   ngOnInit(): void {
     this.getPedidos();
@@ -20,6 +20,11 @@ export class PedidosComponent implements OnInit {
   abrirModal(){
     console.log("estoy en abrirModal de app.component.ts");
     this.addPedidoService.mostrarModal();
+  }
+
+  abrirModalEditar(pedido : Pedido) {
+    this.pedidosService.mostrarModal(pedido);
+    console.log(pedido);
   }
 
   getPedidos() {

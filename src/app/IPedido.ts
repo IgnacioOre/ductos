@@ -1,4 +1,5 @@
 export interface Pedido {
+    pedidoId: number;
     fechaIngreso: Date;
     fechaEntrega: Date;
     estado: string;
