@@ -30,5 +30,9 @@ export class PedidosComponent implements OnInit {
     });
   }
 
+  deletePedido(){
+    this.pedidosService;
+  }
+
 
 }

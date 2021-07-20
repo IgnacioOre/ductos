@@ -18,12 +18,16 @@ export class AddPedidoComponent implements OnInit {
   constructor(public addPedidoService: AddPedidoService, private formBuilder: FormBuilder, public mostrarConfirmacionService: MostrarConfirmacionService) { 
     this.formPedido = this.formBuilder.group({
       codigo: this.generarCodigo(),
+      nombreCliente: ['',[Validators.required]],
+      correo : ['',[Validators.required]],
+      telefono: ['',[Validators.required]],
       fechaDeIngreso: ['',[Validators.required]],
       fechaDeEntrega: ['',[Validators.required]],
-      estado: ['',[Validators.required]],
-      telefono: ['',[Validators.required]],
+      nombrePedido: ['',[Validators.required]],
       presupuesto: ['',[Validators.required]],
-      correo : ['',[Validators.required]],
+      estadoDelPedido: ['',[Validators.required]],
+      estadoDePago: ['',[Validators.required]],
+      abono:['',[Validators.required]],
       indicaciones: ['',[Validators.required]],
       URLImagen:""
     });

@@ -14,4 +14,8 @@ export class PedidosService {
   getPedidos(): Observable<Pedido[]> {
     return this.http.get('http://localhost:3000/pedido').pipe(map((res: any) => res.data));
   }
+
+  deletePedido(){
+    return this.http.delete('http://localhost:3000/pedido');
+  }
 }
