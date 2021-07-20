@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Pedido } from '../IPedido';
 
 @Injectable({
@@ -31,6 +32,6 @@ export class AddPedidoService{
 
   generarCodigoDePedido(){
 
-    
   }
+
 }
