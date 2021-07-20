@@ -43,7 +43,7 @@ export class EditPedidoComponent implements OnInit {
     if (this.pedidosService.pedidoActual.fechaEntrega) {
       this.formPedido.get('fechaDeEntrega')?.setValue(formatDate(this.pedidosService.pedidoActual?.fechaEntrega,'yyyy-MM-dd','en'));
     }
-    this.formPedido.get('estado')?.setValue(this.pedidosService.pedidoActual?.estado);
+    this.formPedido.get('estado')?.setValue(this.pedidosService.pedidoActual?.estadoDelPedido);
     this.formPedido.get('presupuesto')?.setValue(this.pedidosService.pedidoActual?.presupuesto);
     this.formPedido.get('indicaciones')?.setValue(this.pedidosService.pedidoActual?.indicaciones);
     this.formPedido.get('correo')?.setValue(this.pedidosService.pedidoActual.email);
