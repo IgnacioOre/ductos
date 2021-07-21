@@ -5,6 +5,13 @@
   }
 }
 
+.footer {
+  padding: 0 8%;
+  font-size: x-small;
+  color: black
+}
+
+
 .omb_login .omb_authTitle {
   text-align: center;
   line-height: 300%;

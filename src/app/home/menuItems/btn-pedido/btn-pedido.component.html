@@ -39,7 +39,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Contactanos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="login">Iniciar Sesión</a>
+                        <a class="nav-link active" aria-current="page" href="login">Ingreso Funcionarios</a>
                     </li>
                 </ul>
             </div>
@@ -143,7 +143,7 @@
 
             <hr>
             <div class="lower">
-                <button class="btn" (click)="this.showDiv.info = !this.showDiv.info; getData()">Buscar</button>
+                <button class="btn" (click)="getData(inputOrderId.value); this.showDiv.info = !this.showDiv.info">Buscar</button>
             </div>
         </div>
 
