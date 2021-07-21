@@ -47,7 +47,7 @@ export class AddPedidoComponent implements OnInit {
       estadoDePago: ['', [Validators.required]],
       abono: ['', [Validators.required]],
       indicaciones: ['', [Validators.required]],
-      URLImagen: ['localhost:3000/pedidos/', [Validators.required]]
+      URLImagen: ['', [Validators.required]]
 
     });
     console.log(new Date(Date.now()).toISOString());
