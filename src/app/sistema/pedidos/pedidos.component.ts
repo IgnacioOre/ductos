@@ -24,7 +24,12 @@ export class PedidosComponent implements OnInit {
 
   abrirModalEditar(pedido : Pedido) {
     this.pedidosService.mostrarModal(pedido);
-    console.log(pedido);
+    console.log("estoy en pedidos.component.ts");
+  }
+
+  abrirModalCerrarSesion() {
+    this.pedidosService.mostrarModal2();
+    console.log("estoy en pedidos.component.ts");
   }
 
   getPedidos() {
@@ -38,6 +43,4 @@ export class PedidosComponent implements OnInit {
   deletePedido(){
     this.pedidosService;
   }
-
-
 }

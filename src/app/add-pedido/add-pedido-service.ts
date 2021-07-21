@@ -30,8 +30,15 @@ export class AddPedidoService{
     return this.http.post('http://localhost:3000/pedido/:id', imagen);
   }
 
-  generarCodigoDePedido(){
-
+  enviarEmail(cod: any, corr: any){
+    console.log("ESTOY DENTRO DE ADD-PEDIDO-SERVICE EN ENVIAReMAIL");
+    console.log("cod: " + cod);
+    console.log("corr: " + corr);
+    var contenido = {
+      codigo: cod, 
+      correo: corr
+  };
+    return this.http.post("http://localhost:3000/sendemail",contenido); 
   }
 
 }

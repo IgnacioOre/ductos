@@ -1,20 +1,19 @@
-
 <div class="d-flex" id="wrapper">
 
   <!-- Sidebar -->
   <div class="bg-light border-right" id="sidebar-wrapper">
 
-      <div class="sidebar-heading" id="logo">
-          <a href="home" > <img src="../assets/DuctOs.jpeg" width="65"></a>
-      </div>
-      <div class="list-group list-group-flush" id="menuLista">
-          <a class="list-group-item list-group-item-action bg-light" href="#"><b>Pedidos</b></a>
-          <a class="list-group-item list-group-item-action bg-light" href="#">Productos</a>
-          <a class="list-group-item list-group-item-action bg-light" href="#">Insumos</a>
-          <a class="list-group-item list-group-item-action bg-light" href="#">Contactos</a>
-          <a class="list-group-item list-group-item-action bg-light" href="#">Calendario</a>
-          <a class="list-group-item list-group-item-action bg-light" href="#">Informes</a>
-      </div>
+    <div class="sidebar-heading" id="logo">
+      <a href="home"> <img src="../assets/DuctOs.jpeg" width="65"></a>
+    </div>
+    <div class="list-group list-group-flush" id="menuLista">
+      <a class="list-group-item list-group-item-action bg-light" href="#"><b>Pedidos</b></a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Productos</a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Insumos</a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Contactos</a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Calendario</a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Informes</a>
+    </div>
   </div>
   <!-- /#sidebar-wrapper -->
 
@@ -23,15 +22,15 @@
 
     <nav class="navbar navbar-dark bg-dark " id="navbar">
       <h1 id="titulo">Sistema de Gestión DuctOS</h1>
-      <button type="button" class="btn btn-outline-light" id="sesion">Cerrar sesión</button>
+      <button type="button" class="btn btn-outline-light" id="sesion" (click)="abrirModalCerrarSesion()">Cerrar sesión</button>
     </nav>
 
-      <section class="content">
-        <!--Aqui van las migas de pan, pero creo que no las necesitaremos-->
+    <section class="content">
+      <!--Aqui van las migas de pan, pero creo que no las necesitaremos-->
 
-          <h3 id="subtitulo"> Gestión de Pedidos </h3>
+      <h3 id="subtitulo"> Gestión de Pedidos </h3>
 
-          <!--
+      <!--
           <div class="card">
           
             <table class="table" id="myTable" *ngIf="pedidosCargados">
@@ -68,42 +67,45 @@
             </table>
         </div>
       -->
-          <div class="card mb-3 text-center">
-            <div class="card-body text-primary">
-              <div class="table-responsive">
-                <table class="table table-hover" >
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Fecha de ingreso</th>
-                      <th scope="col">Fecha de entrega</th>
-                      <th scope="col">Estado</th>
-                      <th scope="col">Teléfono de contacto</th>
-                      <th style="text-align: left"><button class="btn btn-success"  type="button" (click)="abrirModal()">Añadir</button></th>
-                  </tr>                
-                  </thead>
-                  <tbody *ngIf="pedidosCargados">
-                    <tr *ngFor="let item of pedidos; let i=index">
-                      <th>{{i+1}}</th>
-                      <td>{{item.fechaIngreso}}</td>
-                      <td>{{item.fechaEntrega}}</td>
-                      <td>{{item.estadoDelPedido}}</td>
-                      <td>{{item.telefono}}</td>
-                      <td>
-                        <div class="btn-toolbar">
-                          <button type="button" class="btn btn-primary" (click)="getPedidos()" id="botones">Detalle</button>
-                          <button class="btn btn-warning" type="button" id="botones" (click)="abrirModalEditar(item)" >Editar</button>
-                          <button class="btn btn-danger" type="button" (click)="deletePedido()" id="botones">Eliminar</button>
-                      
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+      <div class="card mb-3 text-center">
+        <div class="card-body text-primary">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Fecha de ingreso</th>
+                  <th scope="col">Fecha de entrega</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Teléfono de contacto</th>
+                  <th style="text-align: left"><button class="btn btn-success" type="button"
+                      (click)="abrirModal()">Añadir</button></th>
+                </tr>
+              </thead>
+              <tbody *ngIf="pedidosCargados">
+                <tr *ngFor="let item of pedidos; let i=index">
+                  <th>{{i+1}}</th>
+                  <td>{{item.fechaIngreso}}</td>
+                  <td>{{item.fechaEntrega}}</td>
+                  <td>{{item.estadoDelPedido}}</td>
+                  <td>{{item.telefono}}</td>
+                  <td>
+                    <div class="btn-toolbar">
+                      <button type="button" class="btn btn-primary" (click)="getPedidos()" id="botones">Detalle</button>
+                      <button class="btn btn-warning" type="button" id="botones"
+                        (click)="abrirModalEditar(item)">Editar</button>
+                      <button class="btn btn-danger" type="button" (click)="deletePedido()"
+                        id="botones">Eliminar</button>
+
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-      </section>   
+        </div>
+      </div>
+    </section>
   </div>
 </div>
 <app-add-pedido></app-add-pedido>
