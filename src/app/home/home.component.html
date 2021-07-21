@@ -15,20 +15,20 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="btn text-white" aria-current="page" (click)="changeStateContent('inicio')">Inicio</a>
+            <a class="btn text-white" aria-current="page" (click)="changePage('off'); changeStateContent('inicio')">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="btn text-white" aria-current="page" (click)="changeStateContent('about')">¿Quiénes somos?</a>
+            <a class="btn text-white" aria-current="page" (click)="changePage('off'); changeStateContent('about')">¿Quiénes somos?</a>
           </li>
           <li class="nav-item">
-            <a class="btn text-white" aria-current="page" (click)="changeStateContent('producto')">Productos</a>
+            <a class="btn text-white" aria-current="page" (click)="changePage('pagination'); changeStateContent('producto')">Productos</a>
           </li>
           <li class="nav-item">
             <a class="btn text-white" aria-current="page" href="seguimiento"
               (click)="changeStateContent('pedidos')">Pedidos</a>
           </li>
           <li class="nav-item">
-            <a class="btn text-white" aria-current="page" (click)="changeStateContent('contactanos')">Contactanos</a>
+            <a class="btn text-white" aria-current="page" (click)="changePage('off'); changeStateContent('contactanos')">Contactanos</a>
           </li>
           <li class="nav-item">
             <a class="btn text-white" aria-current="page" href="login">Iniciar Sesión</a>
@@ -132,7 +132,7 @@
           </span>
         </div>
       </div>
-      <br><br><br> 
+      <br><br><br>
     </div>
 
     <!-- CONTENEDORES DE INFORMACION SOBRE LA EMPRESA -->
@@ -159,21 +159,24 @@
             <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
               <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
                 type="button" role="tab" aria-controls="nav-home" aria-selected="true">Nuestra Historia</button>
-              <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" 
+              <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
                 type="button" role="tab" aria-controls="nav-profile" aria-selected="false">¿Por qué elegirnos?</button>
-              <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" 
-                type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Comunícate con nosotros</button>
+              <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Comunícate con
+                nosotros</button>
             </div>
           </nav>
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
               <br>
-              Ductos Ortiz es una empresa que nace en el año 2011 con la idea de brindar productos de calidad, acompañado de un servicio cercano
+              Ductos Ortiz es una empresa que nace en el año 2011 con la idea de brindar productos de calidad,
+              acompañado de un servicio cercano
               y con la mejor atención a sus clientes.
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
               <br>
-              La respuesta es simple... Porque nuestros clientes son lo más importante. Nos preocuparemos de que sus proyectos se hagan realidad
+              La respuesta es simple... Porque nuestros clientes son lo más importante. Nos preocuparemos de que sus
+              proyectos se hagan realidad
               con una atención superior y productos de la más alta calidad.
             </div>
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -184,12 +187,164 @@
           </div>
         </div>
       </div>
-      <br><br><br>    
+      <br>
     </div>
 
     <!-- CONTENEDORES DE INFORMACION SOBRE LOS PRODUCTOS -->
-    <div class="productos" *ngIf="showInfo.infoProducto">
-      <span>SOY EL CONTENIDO DE PRODUCTOS</span>
+    <div class="productos">
+
+      <div class="pageOne" *ngIf="changeInfoPage.pageOne">
+        <div class="row">
+          <div class="col-sm">
+            <img src="../assets/prod_01.jpeg" alt="Producto 1" width="300">
+          </div>
+          <div class="col-sm">
+            <img src="../assets/prod_02.jpeg" alt="Producto 2" width="300">
+          </div>
+          <div class="col-sm">
+            <img src="../assets/prod_03.jpeg" alt="Producto 3" width="300">
+          </div>
+        </div>
+
+        <div class="informacionItems">
+          <div class="row">
+            <div class="col-sm">
+              <span>
+                <strong>Tubos de alta temperatura</strong>
+              </span>
+            </div>
+            <div class="col-sm">
+              <span>
+                <strong>Ducto para exteriores</strong>
+              </span>
+            </div>
+            <div class="col-sm">
+              <span>
+                <strong>Ductos para ventilación termodinámica</strong>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="descripcionProducto">
+          <div class="row">
+            <div class="col-sm">
+              <span>
+                Estructura fabircada en acero de 0.5mm de espesor.
+                Ducto ideal para interior por su construcción robusta
+                y alta tolerancia temperaturas sobre los 100° C.
+              </span>
+            </div>
+            <div class="col-sm">
+              <span>
+                Ducto interior de acero corrugado con laminas flexibles
+                que evitan el colapso en caso de sismos y/o catastrofes.
+              </span>
+            </div>
+            <div class="col-sm">
+              Estructura lider en ventas por su gran flexibilidad de uso,
+              los cuales pueden ser para areas frias o de altas temperaturas,
+              dada la construcción de doble espesor.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pageTwo" *ngIf="changeInfoPage.pageTwo">
+        <div class="row">
+          <div class="col-sm">
+            <img src="../assets/prod_04.jpeg" alt="Producto 4" width="300">
+          </div>
+          <div class="col-sm">
+            <img src="../assets/prod_05.jpeg" alt="Producto 5" width="300">
+          </div>
+          <div class="col-sm">
+            <img src="../assets/prod_06.jpeg" alt="Producto 6" width="300">
+          </div>
+        </div>
+
+        <div class="informacionItems">
+          <div class="row">
+            <div class="col-sm">
+              <span>
+                <strong>Producto 4</strong>
+              </span>
+            </div>
+            <div class="col-sm">
+              <span>
+                <strong>Producto 5</strong>
+              </span>
+            </div>
+            <div class="col-sm">
+              <span>
+                <strong>Producto 6</strong>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="descripcionProducto">
+          <div class="row">
+            <div class="col-sm">
+              <span>
+                It is a long established fact that a reader will be distracted by the readable 
+                content of a page when looking at its layout. The point of using Lorem 
+                Ipsum is that it has a more-or-less normal distribution of letters.
+              </span>
+            </div>
+            <div class="col-sm">
+              <span>
+                It is a long established fact that a reader will be distracted by the readable 
+                content of a page when looking at its layout. The point of using Lorem 
+                Ipsum is that it has a more-or-less normal distribution of letters.
+              </span>
+            </div>
+            <div class="col-sm">
+                It is a long established fact that a reader will be distracted by the readable 
+                content of a page when looking at its layout. The point of using Lorem 
+                Ipsum is that it has a more-or-less normal distribution of letters.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pageThree" *ngIf="changeInfoPage.pageThree">
+        <section class="page_404">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12 ">
+                <div class="col-sm-10 col-sm-offset-1  text-center">
+                  <div class="four_zero_four_bg">
+                    <h1 class="text-center ">404</h1>
+                  </div>
+                  <div class="contant_box_404">
+                    <h3 class="h2">
+                      Qué lastima, el contenido se ha acabado...
+                    </h3>
+                    <p>Proximante podras difrutar de nuevos productos!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <br>
+      <nav aria-label="Page navigation example" *ngIf="changeInfoPage.pagination">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" (click)="changePage('pageOne')">1</a></li>
+          <li class="page-item"><a class="page-link" (click)="changePage('pageTwo')">2</a></li>
+          <li class="page-item"><a class="page-link" (click)="changePage('pageThree')">3</a></li>
+          <li class="page-item"><a class="page-link">..</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+      <br>
     </div>
 
     <!-- CONTENEDORES DE INFORMACION PARA CONTACTO CON LA EMPRESA -->
