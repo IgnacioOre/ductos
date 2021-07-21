@@ -101,7 +101,6 @@ export class AddPedidoComponent implements OnInit {
 
   ocultarModal() {
     this.addPedidoService.ocultarModal();
-    //this.mostrarConfirmacionService.mostrarMensaje("Éxito!","Se ha añadido el pedido con éxito");
   }
 
   rand_Code(chars: any, lon: any): String {
@@ -114,25 +113,19 @@ export class AddPedidoComponent implements OnInit {
   }
 
   generarCodigo(): string {
-    //this.enviarEmailService.sendMail();
-    //console.log("Estoy dentro de generarCodigo");
     return this.rand_Code('0123456789', 6) + '' + this.rand_Code('ABCDEFGHIJKMNOPQRSTUVWXYZ', 2);
-
   }
 
   mostrarMensaje() {
     console.log("El codigo es:" + this.formPedido.controls['codigo'].value);
-    console.log("Estoy dentro de mostrar mensaje app component");
     this.mostrarConfirmacionService.mostrarModal(this.formPedido.controls['codigo'].value);
     
   }
 
   enviarCorreo() {
-    console.log("ESTOY DENTRO DE ADD-PEDIDO.COMPONENT EN EL METODO GENERARCODIGO")
     this.addPedidoService.enviarEmail(this.formPedido.controls['codigo'].value, this.formPedido.controls['correo'].value).subscribe(res => {
       console.log(res);
     });
-    console.log("ESTOY SALIENDO")
   }
 
 

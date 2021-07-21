@@ -31,7 +31,6 @@ export class AddPedidoService {
   }
 
   enviarEmail(codigo: any, correo: any) {
-    console.log("ESTOY DENTRO DE ADD-PEDIDO-SERVICE EN ENVIAReMAIL");
     console.log("codigo: " + codigo);
     console.log("corr: " + correo);
     var body = {
