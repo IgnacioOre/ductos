@@ -1,152 +1,78 @@
 
 @media (min-width: 768px) {
-    .omb_row-sm-offset-3 div:first-child[class*="col-"] {
-        margin-left: 25%;
-    }
+  .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+      margin-left: 25%;
   }
-  
-  .omb_login .omb_authTitle {
-    text-align: center;
-    line-height: 300%;
-  }
+}
 
-  
+.omb_login .omb_authTitle {
+  text-align: center;
+  line-height: 300%;
+}
+
+
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  margin: 0 auto; 
-  border-radius: 5px; /* 5px rounded corners */
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+margin: 0 auto; 
+border-radius: 5px; /* 5px rounded corners */
 }
 
 /* Add rounded corners to the top left and the top right corner of the image */
 img {
-  border-radius: 5px 5px 0 0;
+border-radius: 5px 5px 0 0;
 }
-  .omb_login .omb_socialButtons a {
-    color: white; /* In yourUse @body-bg*/ 
-    opacity:0.9;
-  }
-  .omb_login .omb_socialButtons a:hover {
-    color: white;
-    opacity:1;    	
-  }
-  .omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
-  .omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
-  .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
-  
-  
-  .omb_login .omb_loginOr {
-    position: relative;
-    font-size: 1.5em;
-    color: #aaa;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-  }
-  
-  .omb_login .omb_loginOr .omb_hrOr {
-  background-color: #cdcdcd;
-  height: 1px;
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-  }
-  
-  .omb_login .omb_loginOr .omb_spanOr {
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: -0.6em;
-    margin-left: -1.5em;
-    background-color: white;
-    width: 3em;
-    text-align: center;
-  }			
-  
-  .omb_login .omb_loginForm .input-group.i {
-    width: 2em;
-  }
-  .omb_login .omb_loginForm  .help-block {
-    color: red;
-  }
-  
-  @media (min-width: 768px) {
-    .omb_login .omb_forgotPwd {
-        text-align: right;
-        margin-top:10px;
-    }		
-  } 
-  
+.omb_login .omb_socialButtons a {
+  color: white; /* In yourUse @body-bg*/ 
+  opacity:0.9;
+}
+.omb_login .omb_socialButtons a:hover {
+  color: white;
+  opacity:1;    	
+}
+.omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
+.omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
+.omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
 
-  body {    
-    font-family: 'Kanit', sans-serif;
-    color: white;
-    font-size: 1.2rem;
-    line-height: 1.4em;
-    margin: 0;
+
+.omb_login .omb_loginOr {
+  position: relative;
+  font-size: 1.5em;
+  color: #aaa;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
-h1{
-    color: rgb(0, 0, 0);
-    line-height: 1.3em;
-    font-size: 1.2rem;
+.omb_login .omb_loginOr .omb_hrOr {
+background-color: #cdcdcd;
+height: 1px;
+margin-top: 0px !important;
+margin-bottom: 0px !important;
 }
 
-.header{
-    background: linear-gradient(180deg, black, gray);
-    color: white;
-    padding: 2rem 0;
+.omb_login .omb_loginOr .omb_spanOr {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: -0.6em;
+  margin-left: -1.5em;
+  background-color: white;
+  width: 3em;
+  text-align: center;
+}			
 
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
+.omb_login .omb_loginForm .input-group.i {
+  width: 2em;
 }
-    .header a {
-        color: white;
-        text-decoration: none;
-    }
-
-.logo-nav-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.omb_login .omb_loginForm  .help-block {
+  color: red;
 }
 
-.navigation ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-    .navigation ul li {
-        display: inline-block;
-    }
-
-    .navigation ul li a {
-        display: block;
-        padding: 0.5rem 1rem;
-        transition: all 0.4s linear;
-        border-radius: 5px;
-    }
-    
-    .navigation ul li a:hover {
-        background: #4a4a4a
-    }
-
-.main {
-    padding-top: 8rem;
-}
-
-.text-center {
-    background: #4a4a4a;
-    font-size: 1rem;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 55px;
-    text-align: center;
-    color: white;
-    margin-top: 4rem;
-}
-  
+@media (min-width: 768px) {
+  .omb_login .omb_forgotPwd {
+      text-align: right;
+      margin-top:10px;
+  }		
+} 
