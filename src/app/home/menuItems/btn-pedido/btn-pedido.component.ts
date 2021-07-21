@@ -11,6 +11,7 @@ export class BtnPedidoComponent implements OnInit {
   constructor(private btnService: BtnPedidoServiceService) { }
 
     consulta: any;
+    exitenDatos: boolean = false;
     pedidoHallado: any;
 
    ngOnInit(): void {
@@ -21,12 +22,13 @@ export class BtnPedidoComponent implements OnInit {
     info: false,     
   }
 
-  getData(){
-    console.log("me pulsaron desde la ventada de pedidos para recuperar los clientes y pedidos"); 
+  getData(codigo: string){
+    console.log("me pulsaron desde la ventada de pedidos para recuperar los clientes y pedidos");
+    console.log("El codigo de producto es : " + codigo);     
 
-    this.btnService.getAllData().subscribe((res: any) => {
-      this.consulta = res;
-      console.log(this.consulta);
+    this.btnService.getAllData(codigo).subscribe(res => {   
+      console.log("soy la res" , res);   
+      this.consulta = res;      
     });
   }
 }

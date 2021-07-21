@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { BtnPedidoComponent } from './home/menuItems/btn-pedido/btn-pedido.component';
 import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { EditPedidoComponent } from './edit-pedido/edit-pedido.component';
+import { DetailPedidoComponent } from './detail-pedido/detail-pedido.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { EditPedidoComponent } from './edit-pedido/edit-pedido.component';
     HomeComponent,
     BtnPedidoComponent,
     ConfirmacionComponent,
-    EditPedidoComponent
+    EditPedidoComponent,
+    DetailPedidoComponent
   ],
   imports: [
     BrowserModule,

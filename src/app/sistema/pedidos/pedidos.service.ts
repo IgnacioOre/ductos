@@ -9,8 +9,8 @@ import { Pedido } from 'src/app/IPedido';
 })
 export class PedidosService {
 
-  public oculto : string = '';
-  public oculto2 : string = '';
+  public ocultoEdit : string = '';
+  public ocultoDetail : string = '';
   public pedidoActual : Pedido;
   constructor(private http : HttpClient) { }
 
@@ -18,21 +18,26 @@ export class PedidosService {
     return this.http.get('http://localhost:3000/pedido').pipe(map((res: any) => res.data));
   }
 
-  ocultarModal() {
+  ocultarModalEdit() {
     console.log('ocultar modal');
-    this.oculto= '';
+    this.ocultoEdit= '';
   }
 
-  mostrarModal(pedido : Pedido){
-    this.oculto = 'block';
+  mostrarModalEdit(pedido : Pedido){
+    this.ocultoEdit = 'block';
     this.pedidoActual = pedido;
     console.log('mostrar modal');
   }
 
-  mostrarModal2(){
-    console.log('mostrar modal2');
-    this.oculto2 = 'block';
-    
+  ocultarModalDetail() {
+    console.log('ocultar modal');
+    this.ocultoDetail= '';
+  }
+
+  mostrarModalDetail(pedido : Pedido){
+    this.ocultoDetail = 'block';
+    this.pedidoActual = pedido;
+    console.log('mostrar modal');
   }
 
   updatePedido(pedido : Pedido){

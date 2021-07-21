@@ -31,7 +31,7 @@ export class EditPedidoComponent implements OnInit {
       correo : [this.pedidosService.pedidoActual?.email ,[Validators.required]],
       abono: [this.pedidosService.pedidoActual?.abono, [Validators.required]],
       indicaciones: [this.pedidosService.pedidoActual?.indicaciones,[Validators.required]],
-      URLImagen: ["", [Validators.required]]
+      URLImagen: ['', [Validators.required]]
     });
     this.pedidoActual = this.pedidosService.pedidoActual;
     this.previsualizacion = this.pedidoActual.URLImagen;
@@ -72,7 +72,7 @@ export class EditPedidoComponent implements OnInit {
     this.pedidosService.updatePedido(this.pedidoActual).subscribe(res =>{
       console.log(res);
     });
-    this.ocultarModal();
+    this.ocultarModalEdit();
   }
 
   capturarFile(event:any): any {
@@ -91,28 +91,9 @@ export class EditPedidoComponent implements OnInit {
     });
 
   }
-  
-  /*
-  ngAfterViewInit() {
-    this.fillData();
-  }
 
-  fillData() {
-    console.log(new Date(this.pedidosService.pedidoActual?.fechaIngreso));
-    this.formPedido.get('fechaDeIngreso')?.setValue(formatDate(this.pedidosService.pedidoActual?.fechaIngreso,'yyyy-MM-dd','en'));
-    if (this.pedidosService.pedidoActual.fechaEntrega) {
-      this.formPedido.get('fechaDeEntrega')?.setValue(formatDate(this.pedidosService.pedidoActual?.fechaEntrega,'yyyy-MM-dd','en'));
-    }
-    this.formPedido.get('estado')?.setValue(this.pedidosService.pedidoActual?.estadoDelPedido);
-    this.formPedido.get('presupuesto')?.setValue(this.pedidosService.pedidoActual?.presupuesto);
-    this.formPedido.get('indicaciones')?.setValue(this.pedidosService.pedidoActual?.indicaciones);
-    this.formPedido.get('correo')?.setValue(this.pedidosService.pedidoActual.email);
-    this.formPedido.get('telefono')?.setValue(this.pedidosService.pedidoActual.telefono);
-  }
-  */
-  ocultarModal(){
-    this.pedidosService.ocultarModal();
-    //this.mostrarConfirmacionService.mostrarMensaje("Éxito!","Se ha añadido el pedido con éxito");
+  ocultarModalEdit(){
+    this.pedidosService.ocultarModalEdit();
   }
 
   mostrarMensaje(){

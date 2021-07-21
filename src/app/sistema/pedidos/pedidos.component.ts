@@ -24,19 +24,16 @@ export class PedidosComponent implements OnInit {
   }
 
   abrirModalEditar(pedido : Pedido) {
-    this.pedidosService.mostrarModal(pedido);
+    this.pedidosService.mostrarModalEdit(pedido);
     console.log("estoy en pedidos.component.ts");
   }
 
-  abrirModalCerrarSesion() {
-    this.pedidosService.mostrarModal2();
-    console.log("estoy en pedidos.component.ts");
+  detallePedido(pedido: Pedido){
+    this.pedidosService.mostrarModalDetail(pedido);
   }
   
-  
   getPedidos() {
-    console.log("Usando la cosa loca");
-    this.pedidosService.getPedidos().subscribe(res => {
+      this.pedidosService.getPedidos().subscribe(res => {
       this.pedidos = res;
       console.log(this.pedidos);
       this.pedidosCargados = true;
@@ -52,7 +49,6 @@ export class PedidosComponent implements OnInit {
   }
   
   borrarPedido(pedido : Pedido) {
-    console.log("Estoy en borrarPedido de pedidos.component.ts");
     console.log(pedido);
     this.pedidosService.deletePedido(pedido).subscribe(res => {
       console.log(res);
