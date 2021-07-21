@@ -60,12 +60,16 @@
                     <form>
                         <div class="form-element">
                             <div class="row align-items-center">
-                                <div class="col-sm-8">
+                                <div class="col-sm-4">    
                                     <span id="input-header">Ingrese el número del pedido</span>
                                 </div>
+                                <div class="col-sm-4" id="contentButtom">
+                                    <button class="btn"
+                                        (click)="getData(inputOrderId.value); ofInfo(); this.showDiv.info = !this.showDiv.info">Buscar</button>                                    
+                                </div>
                                 <div class="col-sm-4">
-                                    <input #inputOrderId type="text" id="order_id" placeholder=" Formato: 123456AB" maxlength="8"
-                                        name="order_id" required>
+                                    <input #inputOrderId type="text" id="order_id" placeholder=" Formato: 123456AB"
+                                        maxlength="8" name="order_id" required>
                                 </div>
                             </div>
                         </div>
@@ -86,12 +90,12 @@
                         </div>
 
                         <div class="col-4">
-                            <span id="heading">Apellido</span><br>                            
-                            <span id="details">{{consulta?.apellidoPaterno | uppercase}}</span>
+                            <span id="heading">Email</span><br>
+                            <span id="details">{{consulta?.email}}</span>
                         </div>
 
                         <div class="col-4">
-                            <span id="heading">Fecha estimada de entrega</span><br> 
+                            <span id="heading">Fecha estimada de entrega</span><br>
                             <span id="details">{{consulta?.fechaEntrega | date:'dd-MM-yyyy'}}</span>
                         </div>
 
@@ -104,17 +108,17 @@
                             <span id="heading">Nombre del pedido</span><br>
                             <span id="details">{{consulta?.nombrePedido}}</span>
                         </div>
-    
+
                         <div class="col-4">
-                            <span id="heading">Descripción</span><br>                            
+                            <span id="heading">Descripción</span><br>
                             <span id="details">{{consulta?.indicaciones}}</span>
                         </div>
-    
+
                         <div class="col-4">
-                            <span id="heading">Precio</span><br> 
+                            <span id="heading">Precio</span><br>
                             <span id="details">$ {{consulta?.presupuesto}}</span>
                         </div>
-                    </div>       
+                    </div>
                 </div>
 
                 <div class="total">
@@ -139,24 +143,37 @@
                         <li class="step0 active text-right" id="step3">Finalizado</li>
                     </ul>
                 </div>
-            </div>
+                <div class="col-sm">
+                    <div style="width: 530px; margin: 50px auto">
 
+                        <div class="progress">
+                            <div *ngIf="consulta?.estadoDelPedido=='Recibido'" class="progress-bar" role="progressbar"
+                                aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="max-width: 33%">
+                                <span class="title" id="titleBar">Recibido</span>
+                            </div>
+
+                            <div *ngIf="consulta?.estadoDelPedido=='En proceso'" class="progress-bar" role="progressbar"
+                                aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="max-width: 66%">
+                                <span class="title" id="titleBar">En Proceso</span>
+                            </div>
+
+                            <div *ngIf="consulta?.estadoDelPedido=='Finalizado'" class="progress-bar" role="progressbar"
+                                aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="max-width: 100%">
+                                <span class="title" id="titleBar">Finalizado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <hr>
-            <div class="lower">
-                <button class="btn" (click)="getData(inputOrderId.value); this.showDiv.info = !this.showDiv.info">Buscar</button>
-            </div>
         </div>
-
     </main>
-
     <div>
         <br>
         <br>
         <br>
         <br>
     </div>
-
-
 
     <footer class="footer py-0 bg-dark fixed-bottom text-center">
         <div class="container">
@@ -165,7 +182,6 @@
             <span class="text-white">Universidad del Bío-Bío - Todos los derechos reservados © 2021</span>
         </div>
     </footer>
-
 </body>
 
 </html>
