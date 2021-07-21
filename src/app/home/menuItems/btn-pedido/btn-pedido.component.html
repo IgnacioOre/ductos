@@ -60,8 +60,12 @@
                     <form>
                         <div class="form-element">
                             <div class="row align-items-center">
-                                <div class="col-sm-8">
+                                <div class="col-sm-4">    
                                     <span id="input-header">Ingrese el número del pedido</span>
+                                </div>
+                                <div class="col-sm-4" id="contentButtom">
+                                    <button class="btn"
+                                        (click)="getData(inputOrderId.value); ofInfo(); this.showDiv.info = !this.showDiv.info">Buscar</button>                                    
                                 </div>
                                 <div class="col-sm-4">
                                     <input #inputOrderId type="text" id="order_id" placeholder=" Formato: 123456AB"
@@ -150,7 +154,7 @@
 
                             <div *ngIf="consulta?.estadoDelPedido=='En proceso'" class="progress-bar" role="progressbar"
                                 aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="max-width: 66%">
-                                <span class="title" id="titleBar">En progreso</span>
+                                <span class="title" id="titleBar">En Proceso</span>
                             </div>
 
                             <div *ngIf="consulta?.estadoDelPedido=='Finalizado'" class="progress-bar" role="progressbar"
@@ -162,10 +166,6 @@
                 </div>
             </div>
             <hr>
-            <div class="lower">
-                <button class="btn"
-                    (click)="getData(inputOrderId.value); this.showDiv.info = !this.showDiv.info">Buscar</button>
-            </div>
         </div>
     </main>
     <div>

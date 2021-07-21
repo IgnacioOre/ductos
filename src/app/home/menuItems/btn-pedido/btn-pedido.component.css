@@ -15,8 +15,8 @@
     font-size: 20px;
 }
 
-.col-sm-8 {
-    text-align: center;
+.col-sm-4 {
+    text-align: right;
     font-size: 20px;
 }
 
@@ -233,7 +233,3 @@ input:focus:-ms-input-placeholder {
             opacity: 1;
         }
     }
-
-
-
-

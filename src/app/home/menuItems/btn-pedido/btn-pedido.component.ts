@@ -19,7 +19,11 @@ export class BtnPedidoComponent implements OnInit {
   }  
 
   showDiv = {
-    info: false,     
+    info: false  
+  }
+
+  ofInfo(){
+    this.showDiv.info = false;
   }
 
   getData(codigo: string){
