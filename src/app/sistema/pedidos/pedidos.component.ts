@@ -13,6 +13,8 @@ import { PedidosService } from './pedidos.service';
 export class PedidosComponent implements OnInit {
   pedidosCargados : boolean = false;
   pedidos : Pedido[] = [];
+
+  p: number = 1;
   constructor(public addPedidoService:AddPedidoService, public pedidosService: PedidosService, public loginService : LoginService,
     public router : Router) { }
   
