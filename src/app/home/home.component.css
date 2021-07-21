@@ -60,14 +60,22 @@
     font-size: 1.2em;
 }
 
+.container-info{
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+#cardInfo {
+    padding-top: 0.1rem;
+    padding-bottom: 0.5rem;
+}
+
 /*  FIN CSS PARA CARD CON IMAGEN DE QUIENES SOMOS  */
 
 
 
 
 /* CARRUSEL DE IMAGENES */
-
-
 
 .cardCarrusel {
     display: flex;
