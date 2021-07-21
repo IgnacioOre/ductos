@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddPedidoService } from 'src/app/add-pedido/add-pedido-service';
 import { Pedido } from 'src/app/IPedido';
-import { CerrarSesionComponent } from './modal-cerrar-sesion/cerrar-sesion.component';
 import { PedidosService } from './pedidos.service';
 
 @Component({

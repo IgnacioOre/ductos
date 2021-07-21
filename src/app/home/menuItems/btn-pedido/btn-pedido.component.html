@@ -39,7 +39,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Contactanos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Iniciar Sesión</a>
+                        <a class="nav-link active" aria-current="page" href="login">Iniciar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -64,7 +64,7 @@
                                     <span id="input-header">Ingrese el número del pedido</span>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input #inputOrderId type="text" id="order_id" placeholder="123456AB" maxlength="8"
+                                    <input #inputOrderId type="text" id="order_id" placeholder=" Formato: 123456AB" maxlength="8"
                                         name="order_id" required>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
             </div>
             <hr>
 
-            <div class="middle" style="text-align: center;" *ngIf="showDiv.info">
+            <div class="middle" style="text-align: center;" *ngIf="showDiv.info, consulta">
                 <div class="title">Estado del pedido {{inputOrderId.value | uppercase}}</div>
 
                 <div class="info">
@@ -82,17 +82,17 @@
 
                         <div class="col-4">
                             <span id="heading">Nombre</span><br>
-                            <span id="details">Patricio Parra S.</span>
+                            <span id="details">{{consulta?.nombreCliente}}</span>
                         </div>
 
                         <div class="col-4">
                             <span id="heading">Rut</span><br>                            
-                            <span id="details">19.073.059-k</span>
+                            <span id="details">{{consulta?.apellidoMaterno}}</span>
                         </div>
 
                         <div class="col-4">
                             <span id="heading">Fecha estimada de entrega</span><br> 
-                            <span id="details">05-07-2021</span>
+                            <span id="details">{{consulta?.fechaEntrega}}</span>
                         </div>
 
                     </div>
@@ -102,20 +102,17 @@
                     <div class="row">
                         <div class="col-4">
                             <span id="heading">Nombre del pedido</span><br>
-                            <span id="details">Producto 1</span><br>
-                            <span id="details">Producto 2</span>
+                            <span id="details">{{consulta?.nombrePedido}}</span>
                         </div>
     
                         <div class="col-4">
                             <span id="heading">Descripción</span><br>                            
-                            <span id="details">Ducto de 1m X 1,25m</span><br>
-                            <span id="details">Canal de 1m X 0,25m</span>
+                            <span id="details">{{consulta?.indicaciones}}</span>
                         </div>
     
                         <div class="col-4">
                             <span id="heading">Precio</span><br> 
-                            <span id="details">$12.900</span><br>
-                            <span id="details">$10.900</span><br>
+                            <span id="details">$ {{consulta?.presupuesto}}</span>
                         </div>
                     </div>       
                 </div>
@@ -123,10 +120,10 @@
                 <div class="total">
                     <div class="row">
                         <div class="col-6">
-                            <span><strong>Estado del pedido: </strong>Pagado</span>
+                            <span><strong>Estado del pedido: </strong>{{consulta?.estadoDelPedido}}</span>
                         </div>
                         <div class="col-6">
-                            <span><strong>Total: </strong>$23.980</span>
+                            <span><strong>Total: </strong>$ {{consulta?.presupuesto}}</span>
                         </div>
                     </div>
                 </div>
@@ -146,7 +143,7 @@
 
             <hr>
             <div class="lower">
-                <button class="btn" (click)="showDiv.info = !showDiv.info">Buscar</button>
+                <button class="btn" (click)="this.showDiv.info = !this.showDiv.info; getData()">Buscar</button>
             </div>
         </div>
 

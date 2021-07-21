@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { BtnPedidoComponent } from './home/menuItems/btn-pedido/btn-pedido.component';
 import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { EditPedidoComponent } from './edit-pedido/edit-pedido.component';
-import { CerrarSesionComponent } from './sistema/pedidos/modal-cerrar-sesion/cerrar-sesion.component';
+
 
 @NgModule({
   declarations: [
@@ -24,8 +24,7 @@ import { CerrarSesionComponent } from './sistema/pedidos/modal-cerrar-sesion/cer
     HomeComponent,
     BtnPedidoComponent,
     ConfirmacionComponent,
-    EditPedidoComponent,
-    CerrarSesionComponent
+    EditPedidoComponent
   ],
   imports: [
     BrowserModule,

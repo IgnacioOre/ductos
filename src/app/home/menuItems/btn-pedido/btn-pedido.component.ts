@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BtnPedidoServiceService } from './btn-pedido-service.service';
 
 @Component({
   selector: 'app-btn-pedido',
@@ -7,13 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BtnPedidoComponent implements OnInit {  
   
-  constructor() { }
+  constructor(private btnService: BtnPedidoServiceService) { }
 
-  ngOnInit(): void {
+    consulta: any;
+    pedidoHallado: any;
+
+   ngOnInit(): void {
     
-  }
+  }  
 
   showDiv = {
-    info: false
+    info: false,     
+  }
+
+  getData(){
+    console.log("me pulsaron desde la ventada de pedidos para recuperar los clientes y pedidos"); 
+
+    this.btnService.getAllData().subscribe((res: any) => {
+      this.consulta = res;
+      console.log(this.consulta);
+    });
   }
 }

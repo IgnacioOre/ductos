@@ -14,10 +14,11 @@
                     <div class="card" id="tarjeta">
                         <!--Fecha de ingreso-->
                         <div class="form-group row">
-                            <label class="col-4 col-form-label"><h6>Fecha de ingreso</h6></label>
+                            <label class="col-4 col-form-label">
+                                <h6>Fecha de ingreso</h6>
+                            </label>
                             <div class="col-8">
-                                <input class="form-control" value={{fecha}} type="text"
-                                readonly="readonly">
+                                <input class="form-control" type="text" readonly="readonly">
                             </div>
                         </div>
                     </div>
@@ -57,7 +58,8 @@
                         <div class="form-group row">
                             <label class="col-4 col-form-label">Fecha de entrega</label>
                             <div class="col-8">
-                                <input class="form-control" data-date-format="DD MMMM YYYY" formControlName="fechaDeEntrega" type="date">
+                                <input class="form-control" data-date-format="DD MMMM YYYY"
+                                    formControlName="fechaDeEntrega" type="date">
                             </div>
                         </div>
                         <!--Nombre del pedido-->
@@ -116,15 +118,23 @@
                         <div class="form-group">
                             <label for="exampleFormControlFile1" class="col-4 col-form-label">Adjuntar Imagen</label>
                             <div class="col-8">
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <input enctype="multipart/form-data" (change)="capturarFile($event)" type="file"
+                                    formControlName="URLImagen" class="form-control-file" id="exampleFormControlFile1">
+                                <!--formControlName="URLImagen"-->
                             </div>
+                            <!--
+                            <img *ngIf="previsualizacion" class="center"
+                                [src]="_DomSanitizationService.bypassSecurityTrustUrl(previsualizacion)" width="300px">-->
+
                         </div>
                     </div>
                     <br>
                     <!--Modal footer-->
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary" (click)="mostrarMensaje()">Guardar</button>
-                        <button (click)="saveData()" type="button" style="background-color: red; color: white;" class="btn btn-danexampleModalger">Cerrar</button>
+                        <button (click)="saveData()" type="button" style="background-color: red; color: white;"
+                            class="btn btn-danexampleModalger">Cerrar</button>
+
                     </div>
                 </div>
             </form>

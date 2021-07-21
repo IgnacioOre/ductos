@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Pedido } from '../IPedido';
 
 @Injectable({
@@ -24,6 +25,10 @@ export class AddPedidoService{
   addPedido(pedido: Pedido) {
     return this.http.post('http://localhost:3000/pedido', pedido);
   }
+  
+  addImagen(imagen: any){
+    return this.http.post('http://localhost:3000/pedido/:id', imagen);
+  }
 
   enviarEmail(cod: any, corr: any){
     console.log("ESTOY DENTRO DE ADD-PEDIDO-SERVICE EN ENVIAReMAIL");
@@ -35,4 +40,5 @@ export class AddPedidoService{
   };
     return this.http.post("http://localhost:3000/sendemail",contenido); 
   }
+
 }
