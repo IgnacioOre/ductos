@@ -82,17 +82,17 @@
 
                         <div class="col-4">
                             <span id="heading">Nombre</span><br>
-                            <span id="details">{{consulta?.nombreCliente}}</span>
+                            <span id="details">{{consulta?.nombreCliente | uppercase}}</span>
                         </div>
 
                         <div class="col-4">
-                            <span id="heading">Rut</span><br>                            
-                            <span id="details">{{consulta?.apellidoMaterno}}</span>
+                            <span id="heading">Apellido</span><br>                            
+                            <span id="details">{{consulta?.apellidoPaterno | uppercase}}</span>
                         </div>
 
                         <div class="col-4">
                             <span id="heading">Fecha estimada de entrega</span><br> 
-                            <span id="details">{{consulta?.fechaEntrega}}</span>
+                            <span id="details">{{consulta?.fechaEntrega | date:'dd-MM-yyyy'}}</span>
                         </div>
 
                     </div>
@@ -120,7 +120,7 @@
                 <div class="total">
                     <div class="row">
                         <div class="col-6">
-                            <span><strong>Estado del pedido: </strong>{{consulta?.estadoDelPedido}}</span>
+                            <span><strong>Estado del pedido: </strong>{{consulta?.estadoDelPedido | uppercase}}</span>
                         </div>
                         <div class="col-6">
                             <span><strong>Total: </strong>$ {{consulta?.presupuesto}}</span>
