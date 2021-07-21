@@ -27,7 +27,6 @@ export class AddPedidoComponent implements OnInit {
 
   @Input() getPedidos: Function;
 
-
   @Output()
   added = new EventEmitter<string>();
 
@@ -62,10 +61,11 @@ export class AddPedidoComponent implements OnInit {
     console.log(pedido);
     this.addPedidoService.addPedido(pedido).subscribe(res => {
       console.log(res);
+      this.enviarCorreo();
       this.getPedidos();
       this.formPedido.reset();
       this.formPedido.get('fechaDeIngreso')?.setValue(new Date(Date.now()).toISOString().split('T')[0]);
-
+  
     });
 
     this.ocultarModal();
@@ -87,8 +87,9 @@ export class AddPedidoComponent implements OnInit {
 
       this.formPedido.get('URLImagen')?.setValue(`${res.path}`);
       this.previsualizacion = res.path;
+      
       console.log(res);
-
+  
       console.log("Este es res path", res.path);
 
     });
@@ -123,7 +124,7 @@ export class AddPedidoComponent implements OnInit {
     console.log("El codigo es:" + this.formPedido.controls['codigo'].value);
     console.log("Estoy dentro de mostrar mensaje app component");
     this.mostrarConfirmacionService.mostrarModal(this.formPedido.controls['codigo'].value);
-    this.enviarCorreo();
+    
   }
 
   enviarCorreo() {
