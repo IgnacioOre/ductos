@@ -29,6 +29,8 @@ export class BtnPedidoComponent implements OnInit {
     this.btnService.getAllData(codigo).subscribe(res => {   
       console.log("soy la res" , res);   
       this.consulta = res;      
+      console.log("Soy el estado de producto: " , res.estadoDelPedido);
+      
     });
   }
 }
