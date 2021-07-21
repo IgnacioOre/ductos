@@ -84,9 +84,9 @@
               </thead>
               <tbody *ngIf="pedidosCargados">
                 <tr *ngFor="let item of pedidos; let i=index">
-                  <th>{{i+1}}</th>
-                  <td>{{item.fechaIngreso}}</td>
-                  <td>{{item.fechaEntrega}}</td>
+                  <th>{{item.pedidoId}}</th>
+                  <td>{{item.fechaIngreso.toString().split('T')[0]}}</td>
+                  <td>{{item.fechaEntrega.toString().split('T')[0]}}</td>
                   <td>{{item.estadoDelPedido}}</td>
                   <td>{{item.telefono}}</td>
                   <td>
@@ -94,7 +94,7 @@
                       <button type="button" class="btn btn-primary" (click)="getPedidos()" id="botones">Detalle</button>
                       <button class="btn btn-warning" type="button" id="botones"
                         (click)="abrirModalEditar(item)">Editar</button>
-                      <button class="btn btn-danger" type="button" (click)="deletePedido()"
+                      <button class="btn btn-danger" type="button" (click)="borrarPedido(item)"
                         id="botones">Eliminar</button>
 
                     </div>
@@ -108,5 +108,7 @@
     </section>
   </div>
 </div>
-<app-add-pedido></app-add-pedido>
+
+
+<app-add-pedido [getPedidos]="obtenerFuncion"></app-add-pedido>
 <app-edit-pedido *ngIf="pedidosService.oculto == 'block'"></app-edit-pedido>

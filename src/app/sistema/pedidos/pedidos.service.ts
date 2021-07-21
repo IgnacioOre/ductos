@@ -35,15 +35,23 @@ export class PedidosService {
     
   }
 
-  deletePedido(){
-    return this.http.delete('http://localhost:3000/pedido');
-  }
-
   updatePedido(pedido : Pedido){
     return this.http.put('http://localhost:3000/pedidos', pedido);
   }
 
   uploadImage(nombre : string, uploadData : FormData) {
     return this.http.post(`http://localhost:3000/upload/pedido/${nombre}`, uploadData);
+  }
+
+  deletePedido(pedido: Pedido){
+    console.log(pedido);
+    const options = {
+      body: {
+        pedidoId: pedido.pedidoId
+      },
+    };
+    console.log("Estoy en borrarPedido de pedidos.servicet.ts");
+    return this.http.delete('http://localhost:3000/pedidos', options);
+
   }
 }
