@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ConfirmacionComponent } from '../confirmacion/confirmacion.component';
 import { MostrarConfirmacionService } from '../confirmacion/mostrar-confirmacion.service';
 import { Pedido } from '../IPedido';
@@ -21,7 +22,9 @@ export class AddPedidoComponent implements OnInit {
   nombre: string ="";
   url: string ="";
 
-  constructor(public addPedidoService: AddPedidoService, private formBuilder: FormBuilder, public mostrarConfirmacionService: MostrarConfirmacionService, private http: HttpClient) { 
+  constructor(public addPedidoService: AddPedidoService, private formBuilder: FormBuilder, 
+    public mostrarConfirmacionService: MostrarConfirmacionService, private http: HttpClient,
+    public _DomSanitizationService: DomSanitizer) { 
     this.formPedido = this.formBuilder.group({
       codigo: this.generarCodigo(),
       nombreCliente: ['',[Validators.required]],
@@ -63,7 +66,8 @@ export class AddPedidoComponent implements OnInit {
     var imagen : Pedido = this.formPedido.get('URLImagen')?.value;
     this.http.post(`http://localhost:3000/upload/pedido/${this.nombre}`, uploadData).subscribe((res: any) =>{
       
-      this.formPedido.get('URLImagen')?.setValue(`${res.path}`);  
+      this.formPedido.get('URLImagen')?.setValue(`${res.path}`); 
+      this.previsualizacion = res.path; 
       console.log(res);
 
       console.log("Este es res path", res.path);

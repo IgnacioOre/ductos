@@ -1,11 +1,16 @@
 export interface Pedido {
     pedidoId: number;
+    codigo: string;
+    nombreCliente: string;
+    email: string;
+    telefono: string;
     fechaIngreso: Date;
     fechaEntrega: Date;
-    estadoDelPedido: string;
-    telefono: string;
+    nombrePedido: string;
     presupuesto: number;
-    email: string;
+    estadoDelPedido: string;
+    estadoDePago: string;
+    abono: number;
     indicaciones: string;
     URLImagen: string;
 };

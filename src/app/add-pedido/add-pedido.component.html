@@ -112,9 +112,9 @@
                         <div class="col-8">
                             <input enctype="multipart/form-data" (change)="capturarFile($event)" type="file" formControlName="URLImagen" class="form-control-file" id="exampleFormControlFile1" ><!--formControlName="URLImagen"-->
                         </div>
-                        <div *ngIf="previsualizacion">
-                            <img [src]="previsualizacion" width="100px">
-                        </div>
+                        
+                        <img *ngIf="previsualizacion" class="center" [src]="_DomSanitizationService.bypassSecurityTrustUrl(previsualizacion)" width="300px">
+                        
                     </div>
                 </div>    
             <!--Modal footer-->

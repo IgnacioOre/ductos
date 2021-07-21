@@ -30,4 +30,12 @@ export class PedidosService {
   deletePedido(){
     return this.http.delete('http://localhost:3000/pedido');
   }
+
+  updatePedido(pedido : Pedido){
+    return this.http.put('http://localhost:3000/pedidos', pedido);
+  }
+
+  uploadImage(nombre : string, uploadData : FormData) {
+    return this.http.post(`http://localhost:3000/upload/pedido/${nombre}`, uploadData);
+  }
 }
