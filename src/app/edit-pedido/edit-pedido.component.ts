@@ -22,8 +22,8 @@ export class EditPedidoComponent implements OnInit {
     this.formPedido = this.formBuilder.group({
       nombreCliente: [this.pedidosService.pedidoActual?.nombreCliente, [Validators.required]],
       telefono: [this.pedidosService.pedidoActual?.telefono, [Validators.required]],
-      fechaDeIngreso: [this.pedidosService.pedidoActual?.fechaIngreso,[Validators.required]],
-      fechaDeEntrega: [this.pedidosService.pedidoActual?.fechaEntrega,[Validators.required]],
+      fechaDeIngreso: [this.pedidosService.pedidoActual?.fechaIngreso.toString().split('T')[0],[Validators.required]],
+      fechaDeEntrega: [this.pedidosService.pedidoActual?.fechaEntrega.toString().split('T')[0],[Validators.required]],
       nombrePedido: [this.pedidosService.pedidoActual?.nombrePedido, [Validators.required]],
       presupuesto: [this.pedidosService.pedidoActual?.presupuesto, [Validators.required]],
       estadoDelPedido: [this.pedidosService.pedidoActual?.estadoDelPedido,[Validators.required]],
@@ -34,7 +34,16 @@ export class EditPedidoComponent implements OnInit {
       URLImagen: ["", [Validators.required]]
     });
     this.pedidoActual = this.pedidosService.pedidoActual;
+    this.previsualizacion = this.pedidoActual.URLImagen;
+    console.log(this.pedidosService.pedidoActual?.fechaIngreso.toString());
     
+  }
+
+  formatDate(date:Date) : Date{
+    console.log(date.toString());
+    date = new Date(parseInt(date.toString().split('-')[2]), parseInt(date.toString().split("-")[1], parseInt(date.toString().split("-")[0])));
+    console.log(date);
+    return new Date(parseInt(date.toString().split('-')[2]), parseInt(date.toString().split("-")[1], parseInt(date.toString().split("-")[0])));
   }
 
   ngOnInit(): void {

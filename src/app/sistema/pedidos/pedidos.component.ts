@@ -11,11 +11,12 @@ import { PedidosService } from './pedidos.service';
 export class PedidosComponent implements OnInit {
   pedidosCargados : boolean = false;
   pedidos : Pedido[] = [];
-  constructor(private addPedidoService:AddPedidoService, public pedidosService: PedidosService) { }
+  constructor(public addPedidoService:AddPedidoService, public pedidosService: PedidosService) { }
   
   ngOnInit(): void {
     this.getPedidos();
   }
+
   
   abrirModal(){
     console.log("estoy en abrirModal de app.component.ts");
@@ -31,8 +32,10 @@ export class PedidosComponent implements OnInit {
     this.pedidosService.mostrarModal2();
     console.log("estoy en pedidos.component.ts");
   }
-
+  
+  
   getPedidos() {
+    console.log("Usando la cosa loca");
     this.pedidosService.getPedidos().subscribe(res => {
       this.pedidos = res;
       console.log(this.pedidos);
@@ -40,7 +43,20 @@ export class PedidosComponent implements OnInit {
     });
   }
 
-  deletePedido(){
-    this.pedidosService;
+  revisarPedido(event : Event) {
+    this.getPedidos();
+  }
+
+  get obtenerFuncion() {
+    return this.getPedidos.bind(this);
+  }
+  
+  borrarPedido(pedido : Pedido) {
+    console.log("Estoy en borrarPedido de pedidos.component.ts");
+    console.log(pedido);
+    this.pedidosService.deletePedido(pedido).subscribe(res => {
+      console.log(res);
+      this.getPedidos();
+    });
   }
 }
