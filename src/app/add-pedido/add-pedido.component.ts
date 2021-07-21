@@ -30,7 +30,7 @@ export class AddPedidoComponent implements OnInit {
       nombreCliente: ['',[Validators.required]],
       correo : ['',[Validators.required]],
       telefono: ['',[Validators.required]],
-      fechaDeIngreso: ['',[Validators.required]],
+      fechaDeIngreso: [new Date(Date.now()).toISOString().split('T')[0],[Validators.required]],
       fechaDeEntrega: ['',[Validators.required]],
       nombrePedido: ['',[Validators.required]],
       presupuesto: ['',[Validators.required]],
@@ -41,6 +41,7 @@ export class AddPedidoComponent implements OnInit {
       URLImagen: ['localhost:3000/pedidos/',[Validators.required]]
       
     });
+    console.log(new Date(Date.now()).toISOString());
   }
 
   saveData(){
