@@ -19,7 +19,11 @@ export class BtnPedidoComponent implements OnInit {
   }  
 
   showDiv = {
-    info: false,     
+    info: false  
+  }
+
+  ofInfo(){
+    this.showDiv.info = false;
   }
 
   getData(codigo: string){
@@ -29,6 +33,8 @@ export class BtnPedidoComponent implements OnInit {
     this.btnService.getAllData(codigo).subscribe(res => {   
       console.log("soy la res" , res);   
       this.consulta = res;      
+      console.log("Soy el estado de producto: " , res.estadoDelPedido);
+      
     });
   }
 }

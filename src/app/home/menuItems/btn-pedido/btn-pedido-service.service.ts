@@ -15,6 +15,6 @@ export class BtnPedidoServiceService {
   getAllData(codigo: string) : Observable<any> {    
     console.log("me pulsaron desde el servicio del boton");
     console.log("El codigo de producto es : " + codigo);
-    return this.http.get(`http://localhost:3000/cliente/${codigo}`).pipe(map((res: any) => res.data[0]));    
+    return this.http.get(`http://localhost:3000/pedidos/${codigo}`).pipe(map((res: any) => res.data[0]));    
   }
 }

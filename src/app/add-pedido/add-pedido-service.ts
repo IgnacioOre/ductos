@@ -23,11 +23,11 @@ export class AddPedidoService {
   }
 
   addPedido(pedido: Pedido) {
-    return this.http.post('http://localhost:3000/pedido', pedido);
+    return this.http.post('http://localhost:3000/pedido?token='+localStorage.getItem('token'), pedido);
   }
 
   addImagen(imagen: any) {
-    return this.http.post('http://localhost:3000/pedido/:id', imagen);
+    return this.http.post('http://localhost:3000/pedido/:id?token='+localStorage.getItem('token'), imagen);
   }
 
   enviarEmail(codigo: any, correo: any) {
@@ -38,7 +38,7 @@ export class AddPedidoService {
       codigo: codigo
       
     };
-    return this.http.post('http://localhost:3000/sendemail', body);
+    return this.http.post('http://localhost:3000/sendemail?token='+localStorage.getItem('token'), body);
   }
 
 }

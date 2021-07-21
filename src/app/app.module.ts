@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { BtnPedidoComponent } from './home/menuItems/btn-pedido/btn-pedido.compo
 import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { EditPedidoComponent } from './edit-pedido/edit-pedido.component';
 import { DetailPedidoComponent } from './detail-pedido/detail-pedido.component';
+import { LoginGuard } from './login/login.guard';
 
 
 @NgModule({
@@ -34,15 +36,16 @@ import { DetailPedidoComponent } from './detail-pedido/detail-pedido.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
       {path: 'seguimiento', component: BtnPedidoComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'pedidos', component: PedidosComponent},
+      {path: 'pedidos', component: PedidosComponent, canActivate: [LoginGuard] },
       {path: '', redirectTo: 'home', pathMatch: 'full'}
     ])
   ],
-  providers: [],
+  providers: [LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

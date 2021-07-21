@@ -35,19 +35,19 @@ export class AddPedidoComponent implements OnInit {
     public _DomSanitizationService: DomSanitizer, public router: Router) {
     this.formPedido = this.formBuilder.group({
       codigo: this.generarCodigo(),
-      nombreCliente: ['', [Validators.required]],
-      correo: ['', [Validators.required]],
-      telefono: ['', [Validators.required]],
-      fechaDeIngreso: [new Date(Date.now()).toISOString().split('T')[0], [Validators.required]],
-      fechaDeEntrega: ['', [Validators.required]],
-      nombrePedido: ['', [Validators.required]],
-      presupuesto: ['', [Validators.required]],
-      estadoDelPedido: ['', [Validators.required]],
-      estadoDePago: ['', [Validators.required]],
-      abono: ['', [Validators.required]],
-      indicaciones: ['', [Validators.required]],
-      URLImagen: ['', [Validators.required]]
-
+      nombreCliente: ['',[Validators.required]],
+      correo : ['',[Validators.required]],
+      telefono: ['',[Validators.required]],
+      fechaDeIngreso: [new Date(Date.now()).toISOString().split('T')[0],[Validators.required]],
+      fechaDeEntrega: ['',[Validators.required]],
+      nombrePedido: ['',[Validators.required]],
+      presupuesto: ['',[Validators.required]],
+      estadoDelPedido: ['',[Validators.required]],
+      estadoDePago: ['',[Validators.required]],
+      abono:['',[Validators.required]],
+      indicaciones: ['',[Validators.required]],
+      URLImagen: ['',[Validators.required]]
+      
     });
     console.log(new Date(Date.now()).toISOString());
   }
@@ -58,15 +58,31 @@ export class AddPedidoComponent implements OnInit {
 
   saveData() {
     var pedido: Pedido = this.formPedido.value;
+    if (this.previsualizacion) {
+      pedido.URLImagen = this.previsualizacion;
+    }
     console.log(pedido);
     this.addPedidoService.addPedido(pedido).subscribe(res => {
       console.log(res);
-      this.enviarCorreo();
       this.getPedidos();
-      this.formPedido.reset();
-      this.formPedido.get('fechaDeIngreso')?.setValue(new Date(Date.now()).toISOString().split('T')[0]);
-  
+      this.previsualizacion = "";
+      this.formPedido = this.formBuilder.group({
+        codigo: this.generarCodigo(),
+        nombreCliente: ['',[Validators.required]],
+        correo : ['',[Validators.required]],
+        telefono: ['',[Validators.required]],
+        fechaDeIngreso: [new Date(Date.now()).toISOString().split('T')[0],[Validators.required]],
+        fechaDeEntrega: ['',[Validators.required]],
+        nombrePedido: ['',[Validators.required]],
+        presupuesto: ['',[Validators.required]],
+        estadoDelPedido: ['',[Validators.required]],
+        estadoDePago: ['',[Validators.required]],
+        abono:['',[Validators.required]],
+        indicaciones: ['',[Validators.required]],
+        URLImagen: ['',[Validators.required]]
+      });
     });
+    this.enviarCorreo();
 
     this.ocultarModal();
   }
@@ -77,19 +93,12 @@ export class AddPedidoComponent implements OnInit {
     console.log("archivo Capturadooo", archivoCapturado);
     this.nombre = archivoCapturado.name;
     console.log("nombre", this.nombre);
-    this.url = `localhost:3000/pedidos/${this.nombre}`;
-    console.log("La url", this.url);
     const uploadData = new FormData;
     uploadData.append('archivos', archivoCapturado, archivoCapturado.name);
-
-    var imagen: Pedido = this.formPedido.get('URLImagen')?.value;
-    this.http.post(`http://localhost:3000/upload/pedido/${this.nombre}`, uploadData).subscribe((res: any) => {
-
-      this.formPedido.get('URLImagen')?.setValue(`${res.path}`);
-      this.previsualizacion = res.path;
+    this.http.post(`http://localhost:3000/upload/pedido/${archivoCapturado.name}?token=${localStorage.getItem('token')}`, uploadData).subscribe((res: any) => {
       
+      this.previsualizacion = res.path;
       console.log(res);
-  
       console.log("Este es res path", res.path);
 
     });

@@ -56,7 +56,7 @@ export class EnviarEmailService {
 
 
   sendCorreo() {
-    this.http.post("/sendemail", "ysalejandra@gmail.com").subscribe(data => {
+    this.http.post("/sendemail?token="+localStorage.getItem('token'), "ysalejandra@gmail.com").subscribe(data => {
       console.log(data);
     });
 

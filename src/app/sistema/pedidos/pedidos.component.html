@@ -22,7 +22,7 @@
 
     <nav class="navbar navbar-dark bg-dark " id="navbar">
       <h1 id="titulo">Sistema de Gestión DuctOS</h1>
-      <button type="button" class="btn btn-outline-light" id="sesion">Cerrar sesión</button>
+      <button type="button" class="btn btn-outline-light" id="sesion" (click)="cerrarSesion()">Cerrar sesión</button>
     </nav>
 
     <section class="content">
@@ -45,7 +45,7 @@
                 </tr>
               </thead>
               <tbody *ngIf="pedidosCargados">
-                <tr *ngFor="let item of pedidos; let i=index">
+                <tr *ngFor="let item of pedidos | paginate: {itemsPerPage: 10, currentPage: p, totalItems: pedidos.length} ">
                   <th>{{item.pedidoId}}</th>
                   <td>{{item.fechaIngreso.toString().split('T')[0]}}</td>
                   <td>{{item.fechaEntrega.toString().split('T')[0]}}</td>
@@ -64,6 +64,7 @@
                 </tr>
               </tbody>
             </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ export class PedidosService {
   constructor(private http : HttpClient) { }
 
   getPedidos(): Observable<Pedido[]> {
-    return this.http.get('http://localhost:3000/pedido').pipe(map((res: any) => res.data));
+    return this.http.get('http://localhost:3000/pedido?token='+localStorage.getItem('token')).pipe(map((res: any) => res.data));
   }
 
   ocultarModalEdit() {
@@ -41,11 +41,11 @@ export class PedidosService {
   }
 
   updatePedido(pedido : Pedido){
-    return this.http.put('http://localhost:3000/pedidos', pedido);
+    return this.http.put('http://localhost:3000/pedidos?token='+localStorage.getItem('token'), pedido);
   }
 
   uploadImage(nombre : string, uploadData : FormData) {
-    return this.http.post(`http://localhost:3000/upload/pedido/${nombre}`, uploadData);
+    return this.http.post(`http://localhost:3000/upload/pedido/${nombre}?token=${localStorage.getItem('token')}`, uploadData);
   }
 
   deletePedido(pedido: Pedido){
@@ -55,8 +55,7 @@ export class PedidosService {
         pedidoId: pedido.pedidoId
       },
     };
-    console.log("Estoy en borrarPedido de pedidos.servicet.ts");
-    return this.http.delete('http://localhost:3000/pedidos', options);
+    return this.http.delete('http://localhost:3000/pedidos?token='+localStorage.getItem('token'), options);
 
   }
 }
