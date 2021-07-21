@@ -6,18 +6,18 @@ import { Pedido } from '../IPedido';
 @Injectable({
   providedIn: 'root'
 })
-export class AddPedidoService{
+export class AddPedidoService {
 
   public oculto: string = '';
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ocultarModal() {
     console.log('ocultar modal');
-    this.oculto= '';
+    this.oculto = '';
   }
 
-  mostrarModal(){
+  mostrarModal() {
     this.oculto = 'block';
     console.log('mostrar modal');
   }
@@ -25,20 +25,21 @@ export class AddPedidoService{
   addPedido(pedido: Pedido) {
     return this.http.post('http://localhost:3000/pedido', pedido);
   }
-  
-  addImagen(imagen: any){
+
+  addImagen(imagen: any) {
     return this.http.post('http://localhost:3000/pedido/:id', imagen);
   }
 
-  enviarEmail(cod: any, corr: any){
+  enviarEmail(codigo: any, correo: any) {
     console.log("ESTOY DENTRO DE ADD-PEDIDO-SERVICE EN ENVIAReMAIL");
-    console.log("cod: " + cod);
-    console.log("corr: " + corr);
-    var contenido = {
-      codigo: cod, 
-      correo: corr
-  };
-    return this.http.post("http://localhost:3000/sendemail",contenido); 
+    console.log("codigo: " + codigo);
+    console.log("corr: " + correo);
+    var body = {
+      email: correo,
+      codigo: codigo
+      
+    };
+    return this.http.post('http://localhost:3000/sendemail', body);
   }
 
 }
