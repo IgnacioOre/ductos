@@ -8,7 +8,9 @@ import { Pedido } from 'src/app/IPedido';
   providedIn: 'root'
 })
 export class PedidosService {
+
   public oculto : string = '';
+  public oculto2 : string = '';
   public pedidoActual : Pedido;
   constructor(private http : HttpClient) { }
 
@@ -25,6 +27,12 @@ export class PedidosService {
     this.oculto = 'block';
     this.pedidoActual = pedido;
     console.log('mostrar modal');
+  }
+
+  mostrarModal2(){
+    console.log('mostrar modal2');
+    this.oculto2 = 'block';
+    
   }
 
   deletePedido(){

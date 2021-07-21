@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddPedidoService } from 'src/app/add-pedido/add-pedido-service';
 import { Pedido } from 'src/app/IPedido';
+import { CerrarSesionComponent } from './modal-cerrar-sesion/cerrar-sesion.component';
 import { PedidosService } from './pedidos.service';
 
 @Component({
@@ -24,7 +25,12 @@ export class PedidosComponent implements OnInit {
 
   abrirModalEditar(pedido : Pedido) {
     this.pedidosService.mostrarModal(pedido);
-    console.log(pedido);
+    console.log("estoy en pedidos.component.ts");
+  }
+
+  abrirModalCerrarSesion() {
+    this.pedidosService.mostrarModal2();
+    console.log("estoy en pedidos.component.ts");
   }
 
   getPedidos() {
@@ -38,6 +44,4 @@ export class PedidosComponent implements OnInit {
   deletePedido(){
     this.pedidosService;
   }
-
-
 }
