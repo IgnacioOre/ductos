@@ -14,6 +14,7 @@ import { BtnPedidoComponent } from './home/menuItems/btn-pedido/btn-pedido.compo
 import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { EditPedidoComponent } from './edit-pedido/edit-pedido.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
