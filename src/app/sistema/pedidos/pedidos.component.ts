@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AddPedidoService } from 'src/app/add-pedido/add-pedido-service';
 import { Pedido } from 'src/app/IPedido';
+import { LoginService } from 'src/app/services/login/login.service';
 import { PedidosService } from './pedidos.service';
 
 @Component({
@@ -11,7 +13,8 @@ import { PedidosService } from './pedidos.service';
 export class PedidosComponent implements OnInit {
   pedidosCargados : boolean = false;
   pedidos : Pedido[] = [];
-  constructor(public addPedidoService:AddPedidoService, public pedidosService: PedidosService) { }
+  constructor(public addPedidoService:AddPedidoService, public pedidosService: PedidosService, public loginService : LoginService,
+    public router : Router) { }
   
   ngOnInit(): void {
     this.getPedidos();
@@ -54,5 +57,9 @@ export class PedidosComponent implements OnInit {
       console.log(res);
       this.getPedidos();
     });
+  }
+
+  cerrarSesion() {
+    this.loginService.logout();
   }
 }

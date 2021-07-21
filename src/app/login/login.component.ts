@@ -116,12 +116,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.formLogin.value.email);
-    console.log(this.formLogin.value.password);
-
     this.loginService.login(this.formLogin.value.email, this.formLogin.value.password).subscribe((res: any) => {
       console.log(res);
-      this.router.navigate(['/pedidos']);
     });
 
   }
