@@ -349,9 +349,103 @@
 
     <!-- CONTENEDORES DE INFORMACION PARA CONTACTO CON LA EMPRESA -->
     <div class="contactanos" *ngIf="showInfo.infoContactanos">
-      <span>SOY EL CONTENIDO DE CONTACTANOS</span>
-    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h4>Comunicate con nosotros</h4>
+            <hr>
+          </div>
+          <div class="col-md-4">
+            <div class="address">
 
+              <h5>Dirección:</h5>
+              <ul class="list-unstyled">
+                <li> Universidad Hogwarts de Magia y Hechicería</li>
+                <li> PO Box 95645</li>
+                <li> Escocia, NM 5688-3321</li>
+              </ul>
+            </div>
+            <div class="email">
+              <h5>Email:</h5>
+              <ul class="list-unstyled">
+                <li> estudiaEnHogarts@recepcion.com</li>
+                <li> hogwartsUniversity@recepcion.com</li>
+              </ul>
+            </div>
+            <div class="phone">
+              <h5>Telefono:</h5>
+              <ul class="list-unstyled">
+                <li> +91- 880025667834</li>
+                <li> +91- 880034987534</li>
+              </ul>
+            </div>
+            <hr>
+            <div class="social">
+              <ul class="list-inline list-unstyled">
+                <li class="list-inline-item">
+                  <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#"><i class="fa fa-youtube-play fa-2x"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-body">
+                <form>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <input id="Full Name" name="Full Name" placeholder="Nombre Completo" class="form-control" type="text">
+                      <br>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                      <br>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <input id="Mobile No." name="Mobile No." placeholder="Número telefónico" class="form-control"
+                        required="required" type="text">
+                      <br>
+                      </div>
+                    
+                      <div class="form-group col-md-6">
+                        <select id="inputState" class="form-control">
+                        <option selected>Indicanos el motivo..</option>
+                        <option> Postulación</option>
+                        <option> Consultas</option>
+                        <option> Reclamos</option>
+                        <option> Visitar Centro</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <br>
+                      <textarea id="comment" name="comment" cols="40" rows="5" placeholder="Tu mensaje"
+                        class="form-control"></textarea>
+                    </div>
+
+                  </div>
+
+                  <br>
+
+                  <div class="form-row">
+                    <button type="button" class="btn btn-danger">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <footer class="footer py-0 bg-dark fixed-bottom text-center">
