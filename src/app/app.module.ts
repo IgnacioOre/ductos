@@ -15,6 +15,11 @@ import { EditPedidoComponent } from './sistema/pedidos/edit-pedido/edit-pedido.c
 import { DetailPedidoComponent } from './sistema/pedidos/detail-pedido/detail-pedido.component';
 import { LoginGuard } from './login/login.guard';
 import { AddPedidoComponent } from './sistema/pedidos/add-pedido/add-pedido.component';
+import { InsumosComponent } from './insumos/insumos.component';
+import { ClientesComponent } from './sistema/clientes/clientes.component';
+import { CalendarioComponent } from './sistema/calendario/calendario.component';
+import { InformesComponent } from './sistema/informes/informes.component';
+import { ProductosComponent } from './sistema/productos/productos.component';
 
 
 
@@ -28,7 +33,12 @@ import { AddPedidoComponent } from './sistema/pedidos/add-pedido/add-pedido.comp
     ConfirmacionComponent,
     EditPedidoComponent,
     DetailPedidoComponent,
-    AddPedidoComponent
+    AddPedidoComponent,
+    InsumosComponent,
+    ClientesComponent,
+    CalendarioComponent,
+    InformesComponent,
+    ProductosComponent
   ],
   imports: [
     BrowserModule,
