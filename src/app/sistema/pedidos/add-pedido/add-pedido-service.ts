@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Pedido } from '../IPedido';
+import { Pedido } from 'src/app/models/IPedido';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,6 @@ export class AddPedidoService {
   }
 
   enviarEmail(codigo: any, correo: any) {
-    console.log("ESTOY DENTRO DE ADD-PEDIDO-SERVICE EN ENVIAReMAIL");
     console.log("codigo: " + codigo);
     console.log("corr: " + correo);
     var body = {

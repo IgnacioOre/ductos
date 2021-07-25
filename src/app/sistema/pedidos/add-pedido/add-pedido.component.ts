@@ -4,10 +4,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { ConfirmacionComponent } from '../confirmacion/confirmacion.component';
-import { MostrarConfirmacionService } from '../confirmacion/mostrar-confirmacion.service';
-import { Pedido } from '../IPedido';
-import { PedidosService } from '../sistema/pedidos/pedidos.service';
+import { MostrarConfirmacionService } from 'src/app/sistema/pedidos/confirmacion/mostrar-confirmacion.service';
+import { Pedido } from 'src/app/models/IPedido';
 import { AddPedidoService } from './add-pedido-service';
 
 @Component({

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MostrarConfirmacionService } from '../confirmacion/mostrar-confirmacion.service';
-import { Pedido } from '../IPedido';
-import { PedidosService } from '../sistema/pedidos/pedidos.service';
+import { Pedido } from '../../../models/IPedido';
+import { PedidosService } from '../pedidos.service';
 
 @Component({
   selector: 'app-detail-pedido',
