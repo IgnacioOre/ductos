@@ -27,16 +27,13 @@ export class AddPedidoComponent implements OnInit {
 
   @Input() getPedidos: Function;
 
-  @Output()
-  added = new EventEmitter<string>();
-
   constructor(public addPedidoService: AddPedidoService, private formBuilder: FormBuilder,
     public mostrarConfirmacionService: MostrarConfirmacionService, private http: HttpClient,
     public _DomSanitizationService: DomSanitizer, public router: Router) {
     this.formPedido = this.formBuilder.group({
       codigo: this.generarCodigo(),
       nombreCliente: ['',[Validators.required]],
-      correo : ['',[Validators.required]],
+      email : ['',[Validators.required]],
       telefono: ['',[Validators.required]],
       fechaDeIngreso: [new Date(Date.now()).toISOString().split('T')[0],[Validators.required]],
       fechaDeEntrega: ['',[Validators.required]],
@@ -49,11 +46,6 @@ export class AddPedidoComponent implements OnInit {
       URLImagen: ['',[Validators.required]]
       
     });
-    console.log(new Date(Date.now()).toISOString());
-  }
-
-  addedPedido() {
-    this.added.emit('Agregado');
   }
 
   saveData() {
@@ -69,7 +61,7 @@ export class AddPedidoComponent implements OnInit {
       this.formPedido = this.formBuilder.group({
         codigo: this.generarCodigo(),
         nombreCliente: ['',[Validators.required]],
-        correo : ['',[Validators.required]],
+        email : ['',[Validators.required]],
         telefono: ['',[Validators.required]],
         fechaDeIngreso: [new Date(Date.now()).toISOString().split('T')[0],[Validators.required]],
         fechaDeEntrega: ['',[Validators.required]],
@@ -110,7 +102,6 @@ export class AddPedidoComponent implements OnInit {
 
   ocultarModal() {
     this.addPedidoService.ocultarModal();
-    //this.mostrarConfirmacionService.mostrarMensaje("Éxito!","Se ha añadido el pedido con éxito");
   }
 
   rand_Code(chars: any, lon: any): String {
@@ -123,25 +114,17 @@ export class AddPedidoComponent implements OnInit {
   }
 
   generarCodigo(): string {
-    //this.enviarEmailService.sendMail();
-    //console.log("Estoy dentro de generarCodigo");
     return this.rand_Code('0123456789', 6) + '' + this.rand_Code('ABCDEFGHIJKMNOPQRSTUVWXYZ', 2);
-
   }
 
   mostrarMensaje() {
-    console.log("El codigo es:" + this.formPedido.controls['codigo'].value);
-    console.log("Estoy dentro de mostrar mensaje app component");
     this.mostrarConfirmacionService.mostrarModal(this.formPedido.controls['codigo'].value);
-    
   }
 
   enviarCorreo() {
-    console.log("ESTOY DENTRO DE ADD-PEDIDO.COMPONENT EN EL METODO GENERARCODIGO")
-    this.addPedidoService.enviarEmail(this.formPedido.controls['codigo'].value, this.formPedido.controls['correo'].value).subscribe(res => {
+    this.addPedidoService.enviarEmail(this.formPedido.controls['codigo'].value, this.formPedido.controls['email'].value).subscribe(res => {
       console.log(res);
     });
-    console.log("ESTOY SALIENDO")
   }
 
 

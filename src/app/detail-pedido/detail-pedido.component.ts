@@ -27,7 +27,7 @@ export class DetailPedidoComponent implements OnInit {
       presupuesto: [this.pedidosService.pedidoActual?.presupuesto, [Validators.required]],
       estadoDelPedido: [this.pedidosService.pedidoActual?.estadoDelPedido,[Validators.required]],
       estadoDePago: [this.pedidosService.pedidoActual?.estadoDePago, [Validators.required]],
-      correo : [this.pedidosService.pedidoActual?.email ,[Validators.required]],
+      email : [this.pedidosService.pedidoActual?.email ,[Validators.required]],
       abono: [this.pedidosService.pedidoActual?.abono, [Validators.required]],
       indicaciones: [this.pedidosService.pedidoActual?.indicaciones,[Validators.required]],
       URLImagen: ["", [Validators.required]]
