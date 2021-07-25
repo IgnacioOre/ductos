@@ -20,6 +20,7 @@ import { CalendarioComponent } from './sistema/calendario/calendario.component';
 import { ClientesComponent } from './sistema/clientes/clientes.component';
 import { InformesComponent } from './sistema/informes/informes.component';
 import { ProductosComponent } from './sistema/productos/productos.component';
+import { HomeSistemaComponent } from './sistema/home-sistema/home-sistema.component';
 
 
 
@@ -38,7 +39,8 @@ import { ProductosComponent } from './sistema/productos/productos.component';
     ClientesComponent,
     CalendarioComponent,
     InformesComponent,
-    ProductosComponent
+    ProductosComponent,
+    HomeSistemaComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,9 @@ import { ProductosComponent } from './sistema/productos/productos.component';
       {path: 'seguimiento', component: BtnPedidoComponent},
       {path: 'login', component: LoginComponent},
       {path: 'pedidos', component: PedidosComponent, canActivate: [LoginGuard] },
-      {path: '', redirectTo: 'home', pathMatch: 'full'}
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: 'home-sistema', component: HomeSistemaComponent},
+      {path: 'calendario', component: CalendarioComponent, canActivate: [LoginGuard] },
     ])
   ],
   providers: [LoginGuard],
