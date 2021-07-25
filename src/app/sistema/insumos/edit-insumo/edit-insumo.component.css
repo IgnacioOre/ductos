@@ -7,7 +7,3 @@
     margin-left: auto;
     margin-right: auto;
   }
-
-  select[readonly] option, select[readonly] optgroup {
-    display: none;
-}
