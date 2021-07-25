@@ -24,6 +24,9 @@ import { AddProductoComponent } from './sistema/productos/add-producto/add-produ
 import { AddInsumoComponent } from './sistema/insumos/add-insumo/add-insumo.component';
 import { EditInsumoComponent } from './sistema/insumos/edit-insumo/edit-insumo.component';
 import { HomeSistemaComponent } from './sistema/home-sistema/home-sistema.component';
+import { AgregarInsumosComponent } from './sistema/productos/add-producto/agregar-insumos/agregar-insumos.component';
+import { EditProductoComponent } from './sistema/productos/edit-producto/edit-producto.component';
+import { DetailProductoComponent } from './sistema/productos/detail-producto/detail-producto.component';
 
 
 
@@ -45,7 +48,12 @@ import { HomeSistemaComponent } from './sistema/home-sistema/home-sistema.compon
     ProductosComponent,
     HomeSistemaComponent,
     AddInsumoComponent,
-    EditInsumoComponent
+    EditInsumoComponent,
+    ProductosComponent,
+    AddProductoComponent,
+    AgregarInsumosComponent,
+    EditProductoComponent,
+    DetailProductoComponent
   ],
   imports: [
     BrowserModule,

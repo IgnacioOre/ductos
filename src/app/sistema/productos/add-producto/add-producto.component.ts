@@ -4,7 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/models/IProducto';
-import { AddProductoService } from '../add-producto-service';
+import { ProductosService } from '../productos.service';
 
 @Component({
   selector: 'app-add-producto',
@@ -20,13 +20,16 @@ export class AddProductoComponent implements OnInit {
 
   formProducto: any;
   codigo: string = "";
-  previsualizacion: any;
 
-  constructor(public addProductoService: AddProductoService, private formBuilder: FormBuilder, private http: HttpClient,
+  public archivos: any = [];
+  public previsualizacion: string = '';
+  id: string = "nombre";
+  url: string = "";
+
+  constructor(public productosService: ProductosService,  private formBuilder: FormBuilder, private http: HttpClient,
     public _DomSanitizationService: DomSanitizer, public router: Router) {
 
     this.formProducto = this.formBuilder.group({
-      codigo: this.generarCodigo(),
       nombreProducto: ['', [Validators.required]],
       precio: ['', [Validators.required]],
       cantidad: ['', [Validators.required]],
@@ -34,10 +37,10 @@ export class AddProductoComponent implements OnInit {
       imagenProducto: ['', [Validators.required]]
 
     });
-    console.log(new Date(Date.now()).toISOString());
+    //console.log(new Date(Date.now()).toISOString());
   }
 
-  addedProdcuto() {
+  addedProducto() {
     this.added.emit('Agregado');
   }
 
@@ -47,12 +50,11 @@ export class AddProductoComponent implements OnInit {
       producto.imagenProducto = this.previsualizacion;
     }
     console.log(producto);
-    this.addProductoService.addProducto(producto).subscribe(res => {
+    this.productosService.addProducto(producto).subscribe(res => {
       console.log(res);
       this.getProductos();
       this.previsualizacion = "";
       this.formProducto = this.formBuilder.group({
-        codigo: this.generarCodigo(),
         nombreProducto: ['', [Validators.required]],
         precio: ['', [Validators.required]],
         cantidad: ['', [Validators.required]],
@@ -88,8 +90,9 @@ export class AddProductoComponent implements OnInit {
   }
 
   ocultarModal() {
-    this.addProductoService.ocultarModal();
+    this.productosService.ocultarModalAdd();
   }
+
 
   rand_Code(chars: any, lon: any): String {
     let code = "";
@@ -108,6 +111,10 @@ export class AddProductoComponent implements OnInit {
     console.log("El codigo es:" + this.formProducto.controls['codigo'].value);
     //this.mostrarConfirmacionService.mostrarModal(this.formProducto.controls['codigo'].value);
 
+  }
+
+  agregarInsumos(){
+    this.productosService.mostrarModalAgregarInsumos();
   }
 
 }

@@ -4,7 +4,7 @@ import { Pedido } from 'src/app/models/IPedido';
 import { LoginService } from 'src/app/services/login/login.service';
 import { AddPedidoService } from './add-pedido/add-pedido-service';
 import { PedidosService } from './pedidos.service';
-import * as faker from 'faker';
+//import * as faker from 'faker';
 
 @Component({
   selector: 'app-pedidos',

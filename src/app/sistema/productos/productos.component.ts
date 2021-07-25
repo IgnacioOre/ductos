@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/services/login/login.service';
 import { Producto } from 'src/app/models/IProducto';
-import { AddProductoService } from './add-producto-service';
 import { ProductosService } from './productos.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-productos',
@@ -16,14 +15,14 @@ export class ProductosComponent implements OnInit {
   p: number = 1;
 
 
-  constructor(public addProductoService: AddProductoService, public productosService: ProductosService,
-    public loginService : LoginService) { }
+  constructor(public productosService: ProductosService,public _DomSanitizationService : DomSanitizer) { }
 
   ngOnInit(): void {
+    this.getProductos();
   }
   
   abrirModal(){
-    this.addProductoService.mostrarModal();
+    this.productosService.mostrarModalAdd();
   }
 
   abrirModalEditar(producto: Producto) {
@@ -52,13 +51,9 @@ export class ProductosComponent implements OnInit {
   
   borrarProducto(producto: Producto) {
     console.log(producto);
-    this.productosService.deletePedido(producto).subscribe(res => {
+    this.productosService.deleteProducto(producto).subscribe(res => {
       console.log(res);
       this.getProductos();
     });
-  }
-
-  cerrarSesion() {
-    this.loginService.logout();
   }
 }
