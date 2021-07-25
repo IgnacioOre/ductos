@@ -21,6 +21,8 @@ import { ClientesComponent } from './sistema/clientes/clientes.component';
 import { InformesComponent } from './sistema/informes/informes.component';
 import { ProductosComponent } from './sistema/productos/productos.component';
 import { HomeSistemaComponent } from './sistema/home-sistema/home-sistema.component';
+import { EditInsumoComponent } from './sistema/insumos/edit-insumo/edit-insumo.component';
+import { AddInsumoComponent } from './sistema/insumos/add-insumo/add-insumo.component';
 
 
 
@@ -40,7 +42,9 @@ import { HomeSistemaComponent } from './sistema/home-sistema/home-sistema.compon
     CalendarioComponent,
     InformesComponent,
     ProductosComponent,
-    HomeSistemaComponent
+    HomeSistemaComponent,
+    AddInsumoComponent,
+    EditInsumoComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,8 @@ import { HomeSistemaComponent } from './sistema/home-sistema/home-sistema.compon
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home-sistema', component: HomeSistemaComponent},
       {path: 'calendario', component: CalendarioComponent, canActivate: [LoginGuard] },
+      {path: 'insumos', component: InsumosComponent},
+      {path: '', redirectTo: 'home', pathMatch: 'full'}
     ])
   ],
   providers: [LoginGuard],

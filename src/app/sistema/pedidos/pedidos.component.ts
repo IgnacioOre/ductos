@@ -66,10 +66,6 @@ export class PedidosComponent implements OnInit {
     });
   }
 
-  revisarPedido(event : Event) {
-    this.getPedidos();
-  }
-
   get obtenerFuncion() {
     return this.getPedidos.bind(this);
   }
