@@ -20,4 +20,5 @@ export class MostrarConfirmacionService {
     this.cod=codigo;
     console.log('mostrar modal');
   }
+  
 }

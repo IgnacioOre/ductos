@@ -20,6 +20,8 @@ import { CalendarioComponent } from './sistema/calendario/calendario.component';
 import { ClientesComponent } from './sistema/clientes/clientes.component';
 import { InformesComponent } from './sistema/informes/informes.component';
 import { ProductosComponent } from './sistema/productos/productos.component';
+import { AddInsumoComponent } from './sistema/insumos/add-insumo/add-insumo.component';
+import { EditInsumoComponent } from './sistema/insumos/edit-insumo/edit-insumo.component';
 
 
 
@@ -38,7 +40,9 @@ import { ProductosComponent } from './sistema/productos/productos.component';
     ClientesComponent,
     CalendarioComponent,
     InformesComponent,
-    ProductosComponent
+    ProductosComponent,
+    AddInsumoComponent,
+    EditInsumoComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,7 @@ import { ProductosComponent } from './sistema/productos/productos.component';
       {path: 'seguimiento', component: BtnPedidoComponent},
       {path: 'login', component: LoginComponent},
       {path: 'pedidos', component: PedidosComponent, canActivate: [LoginGuard] },
+      {path: 'insumos', component: InsumosComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'}
     ])
   ],
