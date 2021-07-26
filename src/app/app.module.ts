@@ -20,6 +20,9 @@ import { CalendarioComponent } from './sistema/calendario/calendario.component';
 import { ClientesComponent } from './sistema/clientes/clientes.component';
 import { InformesComponent } from './sistema/informes/informes.component';
 import { ProductosComponent } from './sistema/productos/productos.component';
+import { AddClienteComponent } from './sistema/clientes/add-cliente/add-cliente.component';
+import { EditClienteComponent } from './sistema/clientes/edit-cliente/edit-cliente.component';
+
 import { AddProductoComponent } from './sistema/productos/add-producto/add-producto.component';
 import { AddInsumoComponent } from './sistema/insumos/add-insumo/add-insumo.component';
 import { EditInsumoComponent } from './sistema/insumos/edit-insumo/edit-insumo.component';
@@ -46,6 +49,8 @@ import { DetailProductoComponent } from './sistema/productos/detail-producto/det
     CalendarioComponent,
     InformesComponent,
     ProductosComponent,
+    AddClienteComponent,
+    EditClienteComponent, 
     HomeSistemaComponent,
     AddInsumoComponent,
     EditInsumoComponent,
@@ -69,6 +74,7 @@ import { DetailProductoComponent } from './sistema/productos/detail-producto/det
       {path: 'productos', component: ProductosComponent},
       {path: 'pedidos', component: PedidosComponent, canActivate: [LoginGuard] },
       {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: 'cliente', component: ClientesComponent},
       {path: 'home-sistema', component: HomeSistemaComponent},
       {path: 'calendario', component: CalendarioComponent, canActivate: [LoginGuard] },
       {path: 'insumos', component: InsumosComponent},
