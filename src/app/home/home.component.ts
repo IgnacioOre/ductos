@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
+import { Producto } from '../models/IProducto';
+import { ProductosService } from '../sistema/productos/productos.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +11,9 @@ import { LoginComponent } from '../login/login.component';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  productos: any;
+
+  constructor(private router: Router, public productoService: ProductosService) { }
 
   showInfo = {
     infoInicio: false,
@@ -105,5 +109,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.productos= this.productoService.getProductos().subscribe( res => {
+        console.log(res);
+    });
   }
 }

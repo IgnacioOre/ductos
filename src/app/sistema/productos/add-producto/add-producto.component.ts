@@ -63,6 +63,7 @@ export class AddProductoComponent implements OnInit {
       });
     });
     this.ocultarModal();
+    console.log(this.formProducto.controls);
   }
 
   capturarFile(event: any): any {
@@ -108,6 +109,7 @@ export class AddProductoComponent implements OnInit {
   }
 
   mostrarMensaje() {
+    
     console.log("El codigo es:" + this.formProducto.controls['codigo'].value);
     //this.mostrarConfirmacionService.mostrarModal(this.formProducto.controls['codigo'].value);
 
