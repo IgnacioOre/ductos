@@ -1,0 +1,58 @@
+<div class="modal" data-target="#modal" [ngStyle]="{'display': productosService.ocultoAgregarInsumo}" tabindex="-1"
+    role="dialog">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <!--Empieza el formulario addPedidoService.oculto
+            <form [formGroup]='formInsumos' (ngSubmit)="saveData()" novalidate>-->
+            <!--Modal Header-->
+            <form [formGroup]='formInsumoProductos' (ngSubmit)="saveData()" novalidate>
+                <div class="modal-header">
+                    <h3 class="modal-title">Agregar Insumos</h3>
+                    <!--<button (click)="ocultarModal()" type="button" class="close" data-dismiss="modal">&times;</button>-->
+                </div>
+
+                <!--Modal Body-->
+                <div class="modal-body">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">Filtrar por:</div>
+                            <div class="col-md-4"><input type="text"></div>
+                        </div>
+                        <br>
+                        <div class="card-deck">
+                            <div *ngIf="insumosCargados">
+                                <div *ngFor="let item of insumos">
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="form-check">
+                                                    <div class="card-body">
+                                                        <input class="form-check-input" type="checkbox"
+                                                             id="defaultCheck1">
+                                                        <label class="form-check-label" for="defaultCheck1">
+                                                            <h5 class="card-title">{{item.insumoNombre}}</h5>
+                                                        </label>
+                                                    </div>
+                                                    <div>
+                                                        <img class="card-img-top" src="..." alt="Card image cap">
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <label for="exampleInputEmail1">Cantidad utilizada</label>
+                                                        <input type="email" class="form-control"
+                                                            formControlName="cantidad" aria-describedby="emailHelp"
+                                                            placeholder="">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" (click)= "saveData();ocultarModal()" id="botones">Guardar</button>
+            </form>
+        </div>
+    </div>

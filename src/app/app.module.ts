@@ -20,11 +20,24 @@ import { CalendarioComponent } from './sistema/calendario/calendario.component';
 import { ClientesComponent } from './sistema/clientes/clientes.component';
 import { InformesComponent } from './sistema/informes/informes.component';
 import { ProductosComponent } from './sistema/productos/productos.component';
+import { AddClienteComponent } from './sistema/clientes/add-cliente/add-cliente.component';
+import { EditClienteComponent } from './sistema/clientes/edit-cliente/edit-cliente.component';
+
+import { AddProductoComponent } from './sistema/productos/add-producto/add-producto.component';
 import { AddInsumoComponent } from './sistema/insumos/add-insumo/add-insumo.component';
 import { EditInsumoComponent } from './sistema/insumos/edit-insumo/edit-insumo.component';
 import { InformeComponent } from './sistema/informe/informe.component';
+import { HomeSistemaComponent } from './sistema/home-sistema/home-sistema.component';
+import { AgregarInsumosComponent } from './sistema/productos/add-producto/agregar-insumos/agregar-insumos.component';
+import { EditProductoComponent } from './sistema/productos/edit-producto/edit-producto.component';
+import { DetailProductoComponent } from './sistema/productos/detail-producto/detail-producto.component';
 
 
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CommonModule } from '@angular/common';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -42,9 +55,17 @@ import { InformeComponent } from './sistema/informe/informe.component';
     CalendarioComponent,
     InformesComponent,
     ProductosComponent,
+    AddClienteComponent,
+    EditClienteComponent, 
+    HomeSistemaComponent,
     AddInsumoComponent,
     EditInsumoComponent,
-    InformeComponent
+    InformeComponent,
+    ProductosComponent,
+    AddProductoComponent,
+    AgregarInsumosComponent,
+    EditProductoComponent,
+    DetailProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -57,11 +78,22 @@ import { InformeComponent } from './sistema/informe/informe.component';
       {path: 'home', component: HomeComponent},
       {path: 'seguimiento', component: BtnPedidoComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'productos', component: ProductosComponent},
       {path: 'pedidos', component: PedidosComponent, canActivate: [LoginGuard] },
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: 'cliente', component: ClientesComponent},
+      {path: 'home-sistema', component: HomeSistemaComponent},
+      {path: 'calendario', component: CalendarioComponent, canActivate: [LoginGuard] },
       {path: 'insumos', component: InsumosComponent},
       {path: 'informe', component: InformeComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'}
-    ])
+    ]),
+    CalendarModule.forRoot({
+      provide: DateAdapter, useFactory: adapterFactory
+    }),
+    CommonModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot()
   ],
   providers: [LoginGuard],
   bootstrap: [AppComponent]
