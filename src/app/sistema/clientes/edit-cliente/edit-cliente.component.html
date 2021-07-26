@@ -1,0 +1,77 @@
+<div class="modal" data-target="#modal" [ngStyle]="{'display': clientesService.ocultoEdit}" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <!--Empieza el formulario addClienteService.oculto-->
+            <form [formGroup]='formCliente' (ngSubmit)="saveData()" novalidate>
+                <!--Modal Header-->
+                <div class="modal-header">
+                    <h3 class="modal-title">Crear Cliente</h3>
+                    <button (click)="ocultarModalEdit()" type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!--Modal Body-->
+                <div class="modal-body">
+                    <div class="card" id="tarjeta">
+                        <!--Ingreso de rut-->
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">
+                                <h6>Rut</h6>
+                            </label>
+                            <div class="col-8">
+                                <input class="form-control" formControlName="rut" type="text" placeholder="18798523-5">
+                            </div>
+                            <label class="col-4 col-form-label">
+                                <h6>Nombre</h6>
+                            </label>
+                            <div class="col-8">
+                                <input class="form-control" formControlName="nombreCliente" type="text" placeholder="Simón">
+                            </div>
+                            <label class="col-4 col-form-label">
+                                <h6>Apellido Paterno</h6>
+                            </label>
+                            <div class="col-8">
+                                <input class="form-control" formControlName="apellidoPaterno" type="text" placeholder="Méndez">
+                            </div>
+                            <label class="col-4 col-form-label">
+                                <h6>Apellido Materno</h6>
+                            </label>
+                            <div class="col-8">
+                                <input class="form-control" formControlName="apellidoMaterno" type="text" placeholder="González">
+                            </div>
+                            <label class="col-4 col-form-label">
+                                <h6>Email</h6>
+                            </label>
+                            <div class="col-8">
+                                <input class="form-control" formControlName="email" type="text" placeholder="simon@gmail.com">
+                            </div>
+                            <label class="col-4 col-form-label">
+                                <h6>Teléfono</h6>
+                            </label>
+                            <div class="col-8">
+                                <input class="form-control" formControlName="telefono" type="text" placeholder="96550377">
+                            </div>
+                            <label class="col-4 col-form-label">
+                                <h6>Dirección</h6>
+                            </label>
+                            <div class="col-8">
+                                <input class="form-control" formControlName="direccion" type="text" placeholder="Av Collin, 45">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    
+                    <br>
+
+                    <!--Modal footer-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" (click)="saveData()">Guardar</button>
+                        <button (click)="ocultarModalEdit()" type="button" style="background-color: red; color: white;"
+                            class="btn btn-danexampleModalger">Cerrar</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

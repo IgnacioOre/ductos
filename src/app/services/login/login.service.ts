@@ -18,7 +18,7 @@ export class LoginService {
       localStorage.setItem('token', res.token);
       localStorage.setItem('usuario', JSON.stringify(res.usuario));
       this.logueado = true;
-      this.router.navigate(['pedidos']);
+      this.router.navigate(['pedidos']); //Aqui estaba'pedidos'
     }));
   }
 
