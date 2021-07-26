@@ -22,6 +22,7 @@ import { InformesComponent } from './sistema/informes/informes.component';
 import { ProductosComponent } from './sistema/productos/productos.component';
 import { AddInsumoComponent } from './sistema/insumos/add-insumo/add-insumo.component';
 import { EditInsumoComponent } from './sistema/insumos/edit-insumo/edit-insumo.component';
+import { InformeComponent } from './sistema/informe/informe.component';
 
 
 
@@ -42,7 +43,8 @@ import { EditInsumoComponent } from './sistema/insumos/edit-insumo/edit-insumo.c
     InformesComponent,
     ProductosComponent,
     AddInsumoComponent,
-    EditInsumoComponent
+    EditInsumoComponent,
+    InformeComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ import { EditInsumoComponent } from './sistema/insumos/edit-insumo/edit-insumo.c
       {path: 'login', component: LoginComponent},
       {path: 'pedidos', component: PedidosComponent, canActivate: [LoginGuard] },
       {path: 'insumos', component: InsumosComponent},
+      {path: 'informe', component: InformeComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'}
     ])
   ],
