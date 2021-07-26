@@ -25,16 +25,13 @@ export class AddPedidoComponent implements OnInit {
 
   @Input() getPedidos: Function;
 
-  @Output()
-  added = new EventEmitter<string>();
-
   constructor(public addPedidoService: AddPedidoService, private formBuilder: FormBuilder,
     public mostrarConfirmacionService: MostrarConfirmacionService, private http: HttpClient,
     public _DomSanitizationService: DomSanitizer, public router: Router) {
     this.formPedido = this.formBuilder.group({
       codigo: this.generarCodigo(),
       nombreCliente: ['',[Validators.required]],
-      correo : ['',[Validators.required]],
+      email : ['',[Validators.required]],
       telefono: ['',[Validators.required]],
       fechaDeIngreso: [new Date(Date.now()).toISOString().split('T')[0],[Validators.required]],
       fechaDeEntrega: ['',[Validators.required]],
@@ -47,11 +44,6 @@ export class AddPedidoComponent implements OnInit {
       URLImagen: ['',[Validators.required]]
       
     });
-    console.log(new Date(Date.now()).toISOString());
-  }
-
-  addedPedido() {
-    this.added.emit('Agregado');
   }
 
   saveData() {
@@ -67,7 +59,7 @@ export class AddPedidoComponent implements OnInit {
       this.formPedido = this.formBuilder.group({
         codigo: this.generarCodigo(),
         nombreCliente: ['',[Validators.required]],
-        correo : ['',[Validators.required]],
+        email : ['',[Validators.required]],
         telefono: ['',[Validators.required]],
         fechaDeIngreso: [new Date(Date.now()).toISOString().split('T')[0],[Validators.required]],
         fechaDeEntrega: ['',[Validators.required]],
@@ -124,13 +116,11 @@ export class AddPedidoComponent implements OnInit {
   }
 
   mostrarMensaje() {
-    console.log("El codigo es:" + this.formPedido.controls['codigo'].value);
     this.mostrarConfirmacionService.mostrarModal(this.formPedido.controls['codigo'].value);
-    
   }
 
   enviarCorreo() {
-    this.addPedidoService.enviarEmail(this.formPedido.controls['codigo'].value, this.formPedido.controls['correo'].value).subscribe(res => {
+    this.addPedidoService.enviarEmail(this.formPedido.controls['codigo'].value, this.formPedido.controls['email'].value).subscribe(res => {
       console.log(res);
     });
   }

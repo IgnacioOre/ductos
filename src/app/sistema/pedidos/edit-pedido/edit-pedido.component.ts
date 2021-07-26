@@ -28,7 +28,7 @@ export class EditPedidoComponent implements OnInit {
       presupuesto: [this.pedidosService.pedidoActual?.presupuesto, [Validators.required]],
       estadoDelPedido: [this.pedidosService.pedidoActual?.estadoDelPedido,[Validators.required]],
       estadoDePago: [this.pedidosService.pedidoActual?.estadoDePago, [Validators.required]],
-      correo : [this.pedidosService.pedidoActual?.email ,[Validators.required]],
+      email : [this.pedidosService.pedidoActual?.email ,[Validators.required]],
       abono: [this.pedidosService.pedidoActual?.abono, [Validators.required]],
       indicaciones: [this.pedidosService.pedidoActual?.indicaciones,[Validators.required]],
       URLImagen: ['', [Validators.required]]
@@ -56,7 +56,7 @@ export class EditPedidoComponent implements OnInit {
     this.pedidoActual.fechaEntrega = this.formPedido.get('fechaDeEntrega')?.value;
     this.pedidoActual.estadoDelPedido = this.formPedido.get('estadoDelPedido')?.value;
     this.pedidoActual.indicaciones = this.formPedido.get('indicaciones')?.value;
-    this.pedidoActual.email = this.formPedido.get('correo')?.value;
+    this.pedidoActual.email = this.formPedido.get('email')?.value;
     this.pedidoActual.presupuesto = this.formPedido.get('presupuesto')?.value;
     this.pedidoActual.telefono = this.formPedido.get('telefono')?.value;
     this.pedidoActual.abono = this.formPedido.get('abono')?.value;

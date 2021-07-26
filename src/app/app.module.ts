@@ -23,6 +23,13 @@ import { ProductosComponent } from './sistema/productos/productos.component';
 import { AddClienteComponent } from './sistema/clientes/add-cliente/add-cliente.component';
 import { EditClienteComponent } from './sistema/clientes/edit-cliente/edit-cliente.component';
 
+import { AddProductoComponent } from './sistema/productos/add-producto/add-producto.component';
+import { AddInsumoComponent } from './sistema/insumos/add-insumo/add-insumo.component';
+import { EditInsumoComponent } from './sistema/insumos/edit-insumo/edit-insumo.component';
+import { HomeSistemaComponent } from './sistema/home-sistema/home-sistema.component';
+import { AgregarInsumosComponent } from './sistema/productos/add-producto/agregar-insumos/agregar-insumos.component';
+import { EditProductoComponent } from './sistema/productos/edit-producto/edit-producto.component';
+import { DetailProductoComponent } from './sistema/productos/detail-producto/detail-producto.component';
 
 
 
@@ -43,7 +50,15 @@ import { EditClienteComponent } from './sistema/clientes/edit-cliente/edit-clien
     InformesComponent,
     ProductosComponent,
     AddClienteComponent,
-    EditClienteComponent
+    EditClienteComponent,
+    HomeSistemaComponent,
+    AddInsumoComponent,
+    EditInsumoComponent,
+    ProductosComponent,
+    AddProductoComponent,
+    AgregarInsumosComponent,
+    EditProductoComponent,
+    DetailProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -56,9 +71,14 @@ import { EditClienteComponent } from './sistema/clientes/edit-cliente/edit-clien
       {path: 'home', component: HomeComponent},
       {path: 'seguimiento', component: BtnPedidoComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'productos', component: ProductosComponent},
       {path: 'pedidos', component: PedidosComponent, canActivate: [LoginGuard] },
       {path: '', redirectTo: 'home', pathMatch: 'full'},
-      {path: 'cliente', component: ClientesComponent}
+      {path: 'cliente', component: ClientesComponent},
+      {path: 'home-sistema', component: HomeSistemaComponent},
+      {path: 'calendario', component: CalendarioComponent, canActivate: [LoginGuard] },
+      {path: 'insumos', component: InsumosComponent},
+      {path: '', redirectTo: 'home', pathMatch: 'full'}
     ])
   ],
   providers: [LoginGuard],
