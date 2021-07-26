@@ -50,7 +50,7 @@ import { DetailProductoComponent } from './sistema/productos/detail-producto/det
     InformesComponent,
     ProductosComponent,
     AddClienteComponent,
-    EditClienteComponent,
+    EditClienteComponent, 
     HomeSistemaComponent,
     AddInsumoComponent,
     EditInsumoComponent,
