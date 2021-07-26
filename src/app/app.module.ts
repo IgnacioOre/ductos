@@ -32,6 +32,11 @@ import { EditProductoComponent } from './sistema/productos/edit-producto/edit-pr
 import { DetailProductoComponent } from './sistema/productos/detail-producto/detail-producto.component';
 
 
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CommonModule } from '@angular/common';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -79,7 +84,13 @@ import { DetailProductoComponent } from './sistema/productos/detail-producto/det
       {path: 'calendario', component: CalendarioComponent, canActivate: [LoginGuard] },
       {path: 'insumos', component: InsumosComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'}
-    ])
+    ]),
+    CalendarModule.forRoot({
+      provide: DateAdapter, useFactory: adapterFactory
+    }),
+    CommonModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot()
   ],
   providers: [LoginGuard],
   bootstrap: [AppComponent]
