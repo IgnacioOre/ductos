@@ -55,22 +55,23 @@ export class CalendarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.calendarioService.getPedidos().subscribe(res => {
+      this.pedidosCalendario = res;
       for(let i = 0 ; i < res.length; i++){
         this.items.push(
           {
+            id: res[i].pedidoId,
             title: res[i].nombrePedido,
             start: new Date(res[i].fechaIngreso),
             end: new Date(res[i].fechaEntrega),
             color: {primary: '#e3bc08', secondary: '#FDF1BA'},
-            actions: this.actions,
+            actions: this.actions,            
             meta: {
               time: res[i].fechaIngreso
             }
           });
           this.events = this.items;
       }});
-  };  
-  
+  };    
 
   actions: CalendarEventAction[] = [    
     {
@@ -84,15 +85,8 @@ export class CalendarioComponent implements OnInit {
   ];
 
   cerrarSesion() {
-    this.loginService.logout();    
-  }
-
-  getFechaEntregaPedido(){
-    this.calendarioService.getPedidos().subscribe(res => {
-      this.pedidosCalendario = res;
-      console.log(this.pedidosCalendario);      
-    });
-  }; 
+    this.loginService.logout();
+  } 
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -129,7 +123,7 @@ export class CalendarioComponent implements OnInit {
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
     this.modal.open(this.modalContent, { size: 'lg' });
-  }
+  }  
 
   deleteEvent(eventToDelete: CalendarEvent) {
     this.events = this.events.filter((event) => event !== eventToDelete);
