@@ -20,9 +20,13 @@ import {
   isSameDay,
   isSameMonth,
   addHours,
+  parseISO,
 } from 'date-fns';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CalendarioServiceService } from './calendario.service';
+import { Pedido } from 'src/app/models/IPedido';
+import { DatePipe } from '@angular/common';
 
 const colors: any = {
   red: {
@@ -48,20 +52,45 @@ const colors: any = {
 })
 export class CalendarioComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private modal: NgbModal) { }
+  pedidosCalendario: Pedido[] = [];
+  events: CalendarEvent[] = [];
+
+  viewDate: Date = new Date();
+  items: Array<CalendarEvent<{time: any}>> = [];
+
+  constructor(private loginService: LoginService, private modal: NgbModal,
+    private calendarioService: CalendarioServiceService) { }
 
   ngOnInit(): void {
-  }
+    this.calendarioService.getPedidos().subscribe(res => {
+      for(let i = 0 ; i < res.length; i++){
+        this.items.push(
+          {
+            title: res[i].nombrePedido,
+            start: new Date(res[i].fechaIngreso),
+            color: {primary: '#e3bc08', secondary: '#FDF1BA'},
+            meta: {
+              time: res[i].fechaIngreso
+            }
+          });
+          this.events = this.items;
+      }});
+  };  
 
   cerrarSesion() {
-    this.loginService.logout();
+    this.loginService.logout();    
+  }
+
+  getFechaEntregaPedido(){
+    this.calendarioService.getPedidos().subscribe(res => {
+      this.pedidosCalendario = res;
+      console.log(this.pedidosCalendario);      
+    })   
   }
 
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
-
-  viewDate: Date = new Date();
 
   modalData: {
     action: string;
@@ -92,50 +121,9 @@ export class CalendarioComponent implements OnInit {
 
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [
-    {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions,
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
-  ];
-
-  activeDayIsOpen: boolean = true;
-
   
+
+  activeDayIsOpen: boolean = true;  
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -178,8 +166,8 @@ export class CalendarioComponent implements OnInit {
     this.events = [
       ...this.events,
       {
-        title: 'New event',
-        start: startOfDay(new Date()),
+        title: this.pedidosCalendario[0].nombrePedido,
+        start: startOfDay(this.pedidosCalendario[0].fechaIngreso),
         end: endOfDay(new Date()),
         color: colors.red,
         draggable: true,
@@ -201,5 +189,5 @@ export class CalendarioComponent implements OnInit {
 
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
-  }
+  } 
 }

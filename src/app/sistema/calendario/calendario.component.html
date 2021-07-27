@@ -94,7 +94,7 @@
                 </div>
 
                 <br />
-                
+
                 <div [ngSwitch]="view">
                   <mwl-calendar-month-view
                     *ngSwitchCase="calendarView.Month"
@@ -104,26 +104,25 @@
                     [activeDayIsOpen]="activeDayIsOpen"
                     (dayClicked)="dayClicked($event.day)"
                     (eventClicked)="handleEvent('Clicked', $event.event)"
-                    (eventTimesChanged)="eventTimesChanged($event)"
-                  >
+                    (eventTimesChanged)="eventTimesChanged($event)">
                   </mwl-calendar-month-view>
+
                   <mwl-calendar-week-view
                     *ngSwitchCase="calendarView.Week"
                     [viewDate]="viewDate"
                     [events]="events"
                     [refresh]="refresh"
                     (eventClicked)="handleEvent('Clicked', $event.event)"
-                    (eventTimesChanged)="eventTimesChanged($event)"
-                  >
+                    (eventTimesChanged)="eventTimesChanged($event)">
                   </mwl-calendar-week-view>
+
                   <mwl-calendar-day-view
                     *ngSwitchCase="calendarView.Day"
                     [viewDate]="viewDate"
                     [events]="events"
                     [refresh]="refresh"
                     (eventClicked)="handleEvent('Clicked', $event.event)"
-                    (eventTimesChanged)="eventTimesChanged($event)"
-                  >
+                    (eventTimesChanged)="eventTimesChanged($event)">
                   </mwl-calendar-day-view>
                 </div>
             </div>

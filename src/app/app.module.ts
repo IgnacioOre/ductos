@@ -34,7 +34,7 @@ import { DetailProductoComponent } from './sistema/productos/detail-producto/det
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -92,7 +92,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModalModule,
     FlatpickrModule.forRoot()
   ],
-  providers: [LoginGuard],
+  providers: [LoginGuard, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
