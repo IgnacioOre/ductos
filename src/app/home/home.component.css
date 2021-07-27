@@ -149,3 +149,13 @@ img {
     border-radius: 5px; /* 5px rounded corners */
     color: black;
 }
+#imagen{
+    padding: 60px;
+}
+
+#productosCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
