@@ -38,6 +38,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddProductoComponent,
     AgregarInsumosComponent,
     EditProductoComponent,
-    DetailProductoComponent
+    DetailProductoComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       {path: 'home-sistema', component: HomeSistemaComponent},
       {path: 'calendario', component: CalendarioComponent, canActivate: [LoginGuard] },
       {path: 'insumos', component: InsumosComponent},
-      {path: '', redirectTo: 'home', pathMatch: 'full'}
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: '**', component: PageNotFoundComponent}
     ]),
     CalendarModule.forRoot({
       provide: DateAdapter, useFactory: adapterFactory
