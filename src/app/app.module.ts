@@ -37,6 +37,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     }),
     CommonModule,
     NgbModalModule,
-    FlatpickrModule.forRoot()
+    FlatpickrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [LoginGuard, DatePipe],
   bootstrap: [AppComponent]
