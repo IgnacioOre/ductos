@@ -63,8 +63,7 @@ export class CalendarioComponent implements OnInit {
             title: res[i].nombrePedido,
             start: new Date(res[i].fechaIngreso),
             end: new Date(res[i].fechaEntrega),
-            color: {primary: '#e3bc08', secondary: '#FDF1BA'},
-            actions: this.actions,            
+            color: {primary: '#e3bc08', secondary: '#FDF1BA'},           
             meta: {
               time: res[i].fechaIngreso
             }
@@ -73,16 +72,6 @@ export class CalendarioComponent implements OnInit {
       }});
   };    
 
-  actions: CalendarEventAction[] = [    
-    {
-      label: '<i class="fa fa-trash"></i>',
-      a11yLabel: 'Delete',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.events = this.events.filter((iEvent) => iEvent !== event);
-        this.handleEvent('Eliminación de actividad', event);
-      },
-    },
-  ];
 
   cerrarSesion() {
     this.loginService.logout();
