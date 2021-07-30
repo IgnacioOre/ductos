@@ -34,6 +34,13 @@ import { RegistrarseComponent } from './login/registrarse/registrarse.component'
 
 
 
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CommonModule, DatePipe } from '@angular/common';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +92,7 @@ import { RegistrarseComponent } from './login/registrarse/registrarse.component'
       {path: 'registrarse', component: RegistrarseComponent}
     ])
   ],
-  providers: [LoginGuard],
+  providers: [LoginGuard, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
