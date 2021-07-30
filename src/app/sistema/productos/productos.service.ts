@@ -17,6 +17,7 @@ export class ProductosService {
   pedidoActual: any;
   ocultoAgregarInsumo: string = '';
   productos: Producto[]=[];
+  nombre: string ="";
 
   
   constructor(private http : HttpClient) { }
@@ -93,6 +94,14 @@ export class ProductosService {
     return this.http.post('http://localhost:3000/producto?token='+localStorage.getItem('token'), producto);
   }
 
+  guardarNombre(nombre:string){
+    console.log(nombre);
+    this.nombre=nombre;
+  }
+
+  getNombre(){
+    return this.nombre;
+  }
 
   
 

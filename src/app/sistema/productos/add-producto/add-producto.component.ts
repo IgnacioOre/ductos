@@ -25,6 +25,7 @@ export class AddProductoComponent implements OnInit {
   public previsualizacion: string = '';
   id: string = "nombre";
   url: string = "";
+  nombre: string ="";
 
   constructor(public productosService: ProductosService,  private formBuilder: FormBuilder, private http: HttpClient,
     public _DomSanitizationService: DomSanitizer, public router: Router) {
@@ -83,10 +84,6 @@ export class AddProductoComponent implements OnInit {
     });
 
   }
-  nombre(arg0: string, nombre: any) {
-    throw new Error('Method not implemented.');
-  }
-
   ngOnInit(): void {
   }
 
@@ -117,6 +114,11 @@ export class AddProductoComponent implements OnInit {
 
   agregarInsumos(){
     this.productosService.mostrarModalAgregarInsumos();
+  }
+
+  guardarNombre(nombre: string){
+    console.log(nombre);
+    this.productosService.guardarNombre(nombre);
   }
 
 }

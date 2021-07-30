@@ -30,6 +30,8 @@ import { HomeSistemaComponent } from './sistema/home-sistema/home-sistema.compon
 import { AgregarInsumosComponent } from './sistema/productos/add-producto/agregar-insumos/agregar-insumos.component';
 import { EditProductoComponent } from './sistema/productos/edit-producto/edit-producto.component';
 import { DetailProductoComponent } from './sistema/productos/detail-producto/detail-producto.component';
+import { RegistrarseComponent } from './login/registrarse/registrarse.component';
+
 
 
 
@@ -58,7 +60,8 @@ import { DetailProductoComponent } from './sistema/productos/detail-producto/det
     AddProductoComponent,
     AgregarInsumosComponent,
     EditProductoComponent,
-    DetailProductoComponent
+    DetailProductoComponent,
+    RegistrarseComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,8 @@ import { DetailProductoComponent } from './sistema/productos/detail-producto/det
       {path: 'home-sistema', component: HomeSistemaComponent},
       {path: 'calendario', component: CalendarioComponent, canActivate: [LoginGuard] },
       {path: 'insumos', component: InsumosComponent},
-      {path: '', redirectTo: 'home', pathMatch: 'full'}
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: 'registrarse', component: RegistrarseComponent}
     ])
   ],
   providers: [LoginGuard],
