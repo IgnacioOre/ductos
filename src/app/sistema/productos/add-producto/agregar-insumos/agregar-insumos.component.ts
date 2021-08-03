@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Insumo } from 'src/app/models/IInsumo';
 import { InsumoProducto } from 'src/app/models/InsumoProductos';
@@ -13,103 +13,76 @@ import { ProductosService } from '../../productos.service';
 })
 export class AgregarInsumosComponent implements OnInit {
 
-  _listFilter: string;
-  filteredProductos: Producto[];
-  productosArr: Producto[];
-  insumosCargados: boolean = false
-  insumos: Insumo[];
-  formInsumoProductos: any;
+  formInsumos: any;
+  insumosCargados: boolean = false;
+  insumosDisponibles: Insumo[] = [];
+  arrNombreInsumos: any = [];
+  nombreProducto: string = '';
 
 
   constructor(public productosService: ProductosService, public insumosService: InsumosService,
-    private formBuilder: FormBuilder) { 
-
-    this.formInsumoProductos = this.formBuilder.group({
-      //nombreProducto: ['', [Validators.required]],
-      //insumoNombre: ['', [Validators.required]],
-      cantidad: ['', [Validators.required]],
-      //insumos: this.formBuilder.array([])
+    private formBuilder: FormBuilder) {
+    this.formInsumos = this.formBuilder.group({
+      nombre: this.formBuilder.array([])
     });
-
-    console.log(this.formInsumoProductos);
-
   }
 
-  ngOnInit(): void {
-    console.log("Estoy dentro de ngOnit()");
-    this.getInsumos();
+
+  toggle(event: any) {
+    console.log(event);
+    console.log(event.srcElement.defaultValue);
+    console.log(event.path[0].checked);
+    if (event.path[0].checked) {
+      this.arrNombreInsumos.push(event.path[0].defaultValue);
+    } else {
+      this.arrNombreInsumos.pop(event.path[0].defaultValue);
+    }
   }
 
-  ocultarModal() {
-    this.productosService.ocultarModalAgregarInsumos();
+  guardar() {
+    console.log(this.arrNombreInsumos);
+    this.productosService.ocultoAgregarInsumo = '';
+    this.productosService.mostrarModalAdd();
   }
 
-  saveData() {
-    /*var InsumoProducto: InsumoProducto = this.formInsumoProductos.value;
-    console.log(InsumoProducto);
-    this.productosService.addInsumo(insumo).subscribe(res => {
-      console.log(res);
-      this.getInsumos();
-      this.formInsumoProductos = this.formBuilder.group({
-     //   nombreProducto: ['', [Validators.required]],
-      //insumoNombre: ['', [Validators.required]],
-      cantidad: ['', [Validators.required]],
-      });
-    });
-    this.ocultarModal();*/
-
-
-    this.formInsumoProductos = this.formBuilder.group({
-      //nombreProducto: ['', [Validators.required]],
-      insumoNombre: ['', [Validators.required]],
-      //cantidad: ['', [Validators.required]],
-    });
-
-    console.log("ESTOY EN  saveData");
-    console.log(this.formInsumoProductos);
-    
-    console.log("INSUMONOMBRE");
-    console.log("Estoo " +this.formInsumoProductos.controls['insumoNombre'].value);
-
-
+  obtenerNombreProducto() {
+    this.nombreProducto = this.productosService.getNombre();
+    console.log("NOMBRE DEL PRODUCTO");
+    console.log(this.nombreProducto);
   }
 
-  /*agregarInsumos(){
-    const insumosProductoFormGroup = this.formBuilder.group({
-      nombreInsumo: '',
-      cantidad: ''
-    });
-    this.insumos.push(insumosProductoFormGroup );
-  }*/
 
-  getInsumos() {
+  //Cuando se aprete guardar se creare un nuevo formulario
+
+  agregarInsumos() {
+    const insumosFormGroup = this.formBuilder.group({
+      nombre: ['', [Validators.required]]
+    });
+    //Se agregara un pequeño formulario
+    this.formInsumos.push(insumosFormGroup);
+  }
+
+
+
+  ngOnInit() {
+    this.getInsumosDeLaBaseDeDatos();
+  }
+
+  getInsumosDeLaBaseDeDatos() {
     this.insumosService.getInsumos().subscribe(res => {
-      this.insumos = res;
-      console.log("Estoy dentro de getInsumos");
-      console.log(this.insumos);
+      this.insumosDisponibles = res;
+      this.nombreProducto = this.productosService.getNombre();
+      console.log("NOMBRE DEL PRODUCTO");
+      console.log(this.nombreProducto);
+      console.log("INSUMOS DISPONIBLES");
+      console.log(this.insumosDisponibles);
       this.insumosCargados = true;
+      
     });
   }
 
-
-
-  /*
-  get listFilter(): string{
-    return this._listFilter;
+  recuperarDatos(item: any) {
+    console.log(item);
   }
-  
-  set listFilter(value:string){
-    this._listFilter= value;
-    console.log(this._listFilter);
-    this.productosService.filteredProductos = 
-        this.listFilter ? this.performFilter(this.listFilter) :
-              this.productosService.productos;
-  }
-  
-  performFilter(filterBy: string): Producto[]{
-    filterBy = filterBy.toLocaleLowerCase(); //Convertir filterBy a minuscula
-    return this.productosService.productos.filter((producto: Producto) =>
-      producto.productoId.toLocaleLowerCase().indexOf(filterBy) !== -1);
-  }//retorna nuevo arreglo filtrado
-  */
 }
+

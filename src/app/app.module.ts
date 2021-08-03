@@ -31,14 +31,18 @@ import { HomeSistemaComponent } from './sistema/home-sistema/home-sistema.compon
 import { AgregarInsumosComponent } from './sistema/productos/add-producto/agregar-insumos/agregar-insumos.component';
 import { EditProductoComponent } from './sistema/productos/edit-producto/edit-producto.component';
 import { DetailProductoComponent } from './sistema/productos/detail-producto/detail-producto.component';
+import { RegistrarseComponent } from './login/registrarse/registrarse.component';
+
 
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDateRangeModule } from 'ngx-daterange';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +70,8 @@ import { NgxDateRangeModule } from 'ngx-daterange';
     AddProductoComponent,
     AgregarInsumosComponent,
     EditProductoComponent,
-    DetailProductoComponent
+    DetailProductoComponent,
+    RegistrarseComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +92,8 @@ import { NgxDateRangeModule } from 'ngx-daterange';
       {path: 'calendario', component: CalendarioComponent, canActivate: [LoginGuard] },
       {path: 'insumos', component: InsumosComponent},
       {path: 'informe', component: InformeComponent},
-      {path: '', redirectTo: 'home', pathMatch: 'full'}
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: 'registrarse', component: RegistrarseComponent}
     ]),
     CalendarModule.forRoot({
       provide: DateAdapter, useFactory: adapterFactory
@@ -98,7 +104,7 @@ import { NgxDateRangeModule } from 'ngx-daterange';
     FlatpickrModule.forRoot(),
     NgxDateRangeModule
   ],
-  providers: [LoginGuard],
+  providers: [LoginGuard, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

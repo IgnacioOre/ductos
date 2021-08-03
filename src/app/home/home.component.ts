@@ -109,8 +109,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productos= this.productoService.getProductos().subscribe( res => {
-        console.log(res);
+    this.productoService.getProductos().subscribe( res => {
+      this.productos = res;  
+        console.log("productos a mostrar" ,this.productos);
     });
   }
 }

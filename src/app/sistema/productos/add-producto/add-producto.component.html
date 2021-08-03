@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <!--Empieza el formulario addPedidoService.oculto-->
-            <form [formGroup]='formProducto' (ngSubmit)="saveData()" novalidate>
+            <form [formGroup]='formProducto'>
                 <!--Modal Header-->
                 <div class="modal-header">
                     <h3 class="modal-title">Crear Producto</h3>
@@ -18,7 +18,7 @@
                                 <h6>Nombre</h6>
                             </label>
                             <div class="col-8">
-                                <input class="form-control" formControlName="nombreProducto" type="text">
+                                <input class="form-control" #nombre formControlName="nombreProducto" type="text">
                             </div>
                         </div>
 
@@ -60,7 +60,7 @@
                                 <h6>Insumos utilizados</h6>
                             </label>
                             <div class="col-8">
-                                <button type="submit" class="btn btn-primary" (click)="agregarInsumos()">Buscar</button>
+                                <button type="submit" class="btn btn-primary" (click)="agregarInsumos(); guardarNombre(nombre.value)">Buscar</button>
                             </div>
                         </div>
 
@@ -82,7 +82,7 @@
                     <br>
                     <!--Modal footer-->
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary" (click)="saveData()">Guardar</button>
                         <button (click)="ocultarModal()" type="button" style="background-color: red; color: white;"
                             class="btn btn-danexampleModalger">Cerrar</button>
 

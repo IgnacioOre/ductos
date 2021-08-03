@@ -15,20 +15,24 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="btn text-white" aria-current="page" (click)="changePage('off'); changeStateContent('inicio')">Inicio</a>
+            <a class="btn text-white" aria-current="page"
+              (click)="changePage('off'); changeStateContent('inicio')">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="btn text-white" aria-current="page" (click)="changePage('off'); changeStateContent('about')">¿Quiénes somos?</a>
+            <a class="btn text-white" aria-current="page"
+              (click)="changePage('off'); changeStateContent('about')">¿Quiénes somos?</a>
           </li>
           <li class="nav-item">
-            <a class="btn text-white" aria-current="page" (click)="changePage('pagination'); changeStateContent('producto')">Productos</a>
+            <a class="btn text-white" aria-current="page"
+              (click)="changePage('pagination'); changeStateContent('producto')">Productos</a>
           </li>
           <li class="nav-item">
             <a class="btn text-white" aria-current="page" href="seguimiento"
               (click)="changeStateContent('pedidos')">Pedidos</a>
           </li>
           <li class="nav-item">
-            <a class="btn text-white" aria-current="page" (click)="changePage('off'); changeStateContent('contactanos')">Contactanos</a>
+            <a class="btn text-white" aria-current="page"
+              (click)="changePage('off'); changeStateContent('contactanos')">Contactanos</a>
           </li>
           <li class="nav-item">
             <a class="btn text-white" aria-current="page" href="login">Ingreso Funcionarios</a>
@@ -84,52 +88,37 @@
 
     <!-- CONTENEDOR CON LA INFORMACION DE LA PANTALLA DE INICIO -->
     <div class="inicio" *ngIf="showInfo.infoInicio">
-      <div class="row" style="align-items: center;">
-        <div class="col-sm">
-          <img src="../assets/quienes_somos.png" alt="sobre_nosotros" width="200">
-        </div>
-        <div class="col-sm">
-          <img src="../assets/producto.png" alt="productos" width="250">
-        </div>
-        <div class="col-sm">
-          <img src="../assets/checkbox.png" alt="check" width="200">
-        </div>
-      </div>
 
-      <div class="row" style="align-items: center;">
-        <div class="col-sm">
-          <span style="font-size: 1.5em;"><strong>¿Quienes Somos?</strong></span>
-        </div>
-        <div class="col-sm">
-          <span style="font-size: 1.5em;"><strong>Productos</strong></span>
-        </div>
-        <div class="col-sm">
-          <span style="font-size: 1.5em;"><strong>Ver Estado</strong></span>
-        </div>
-      </div>
-
-      <div class="row" style="align-items: center; text-align: justify;">
-        <div class="col-sm">
-          <span>
+      <div class="card-group">
+        <div class="card">
+          <img class="card-img-top" src="../assets/quienes_somos.png" alt="Card image cap" id="imagen">
+          <div class="card-body">
+            <h5 class="card-title">¿Quiénes Somos?</h5>
+            <p class="card-text">Somos una empresa ubicada en la ciudad de Chillán
+              con mas de 10 años de expreriencia en el rubro.</p>
             <br>
-            Somos una empresa ubicada en la ciudad de Chillán
-            con mas de 10 años de expreriencia en el rubro.
-          </span>
+            <a (click)="changePage('off'); changeStateContent('about')" class="btn btn-primary">Ver más</a>
+          </div>
         </div>
-        <div class="col-sm">
-          <span>
+        <div class="card">
+          <img class="card-img-top" src="../assets/producto.png" alt="Card image cap" id="imagen">
+          <div class="card-body">
+            <h5 class="card-title">Productos</h5>
+            <p class="card-text">Los productos que fabricamos son ductos de aire acondicionado,
+              codos, canales, entre una gran variedad de productos de la más alta calidad calidad.</p>
             <br>
-            Los productos que fabricamos son ductos de aire acondicionado,
-            codos, canales entre una gran variedad de productos de calidad.
-          </span>
+            <a (click)="changePage('pagination'); changeStateContent('producto')" class="btn btn-primary">Ver más</a>
+          </div>
         </div>
-        <div class="col-sm">
-          <span>
+        <div class="card">
+          <img class="card-img-top" src="../assets/checkbox.png" alt="Card image cap" id="imagen">
+          <div class="card-body">
+            <h5 class="card-title">Ver Estado</h5>
+            <p class="card-text">Ingresa a la sección <strong>Pedidos</strong> y podras revisar
+              el estado de estado de éste.</p>
             <br>
-            ¿Quiéres saber como va tu pedido?
-            Ingresa a la sección <strong>Pedidos</strong> y podras revisar
-            el estado de estado de éste.
-          </span>
+            <a href="seguimiento" (click)="changeStateContent('pedidos')" class="btn btn-primary">Acceder</a>
+          </div>
         </div>
       </div>
       <br><br><br>
@@ -191,161 +180,21 @@
     </div>
 
     <!-- CONTENEDORES DE INFORMACION SOBRE LOS PRODUCTOS -->
-    <div class="productos">
+    <div class="productos" *ngIf="changeInfoPage.pageOne">
 
-      <div class="pageOne" *ngIf="changeInfoPage.pageOne">
-        <div class="row">
-          <div class="col-sm">
-            <img src="../assets/prod_01.jpeg" alt="Producto 1" width="300">
-          </div>
-          <div class="col-sm">
-            <img src="../assets/prod_02.jpeg" alt="Producto 2" width="300">
-          </div>
-          <div class="col-sm">
-            <img src="../assets/prod_03.jpeg" alt="Producto 3" width="300">
-          </div>
-        </div>
+      <div class="pageOne" >
 
-        <div class="informacionItems">
-          <div class="row">
-            <div class="col-sm">
-              <span>
-                <strong>Tubos de alta temperatura</strong>
-              </span>
-            </div>
-            <div class="col-sm">
-              <span>
-                <strong>Ducto para exteriores</strong>
-              </span>
-            </div>
-            <div class="col-sm">
-              <span>
-                <strong>Ductos para ventilación termodinámica</strong>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="descripcionProducto">
-          <div class="row">
-            <div class="col-sm">
-              <span>
-                
-                Estructura fabircada en acero de 0.5mm de espesor.
-                Ducto ideal para interior por su construcción robusta
-                y alta tolerancia temperaturas sobre los 100° C.
-              </span>
-            </div>
-            <div class="col-sm">
-              <span>
-                Ducto interior de acero corrugado con laminas flexibles
-                que evitan el colapso en caso de sismos y/o catastrofes.
-              </span>
-            </div>
-            <div class="col-sm">
-              Estructura lider en ventas por su gran flexibilidad de uso,
-              los cuales pueden ser para areas frias o de altas temperaturas,
-              dada la construcción de doble espesor.
+        <div class="card-deck d-flex align-content-between flex-wrap" id="productosCard" >
+          <div class="card w-25 mx-2 " *ngFor="let item of productos; let i = index">
+            <img class="card-img-top img-thumbnail" src="{{(item.imagenProducto) || '../assets/ghost-product.png'}}"
+              alt="Card image cap">
+            <div class="card-body" >
+              <h5 class="card-title">{{item.nombreProducto}}</h5>
+              <p class="card-text">{{item.descripcionProducto}}</p>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="pageTwo" *ngIf="changeInfoPage.pageTwo">
-        <div class="row">
-          <div class="col-sm">
-            <img src="../assets/prod_04.jpeg" alt="Producto 4" width="300">
-          </div>
-          <div class="col-sm">
-            <img src="../assets/prod_05.jpeg" alt="Producto 5" width="300">
-          </div>
-          <div class="col-sm">
-            <img src="../assets/prod_06.jpeg" alt="Producto 6" width="300">
-          </div>
-        </div>
-
-        <div class="informacionItems">
-          <div class="row">
-            <div class="col-sm">
-              <span>
-                <strong>Producto 4</strong>
-              </span>
-            </div>
-            <div class="col-sm">
-              <span>
-                <strong>Producto 5</strong>
-              </span>
-            </div>
-            <div class="col-sm">
-              <span>
-                <strong>Producto 6</strong>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="descripcionProducto">
-          <div class="row">
-            <div class="col-sm">
-              <span>
-                It is a long established fact that a reader will be distracted by the readable 
-                content of a page when looking at its layout. The point of using Lorem 
-                Ipsum is that it has a more-or-less normal distribution of letters.
-              </span>
-            </div>
-            <div class="col-sm">
-              <span>
-                It is a long established fact that a reader will be distracted by the readable 
-                content of a page when looking at its layout. The point of using Lorem 
-                Ipsum is that it has a more-or-less normal distribution of letters.
-              </span>
-            </div>
-            <div class="col-sm">
-                It is a long established fact that a reader will be distracted by the readable 
-                content of a page when looking at its layout. The point of using Lorem 
-                Ipsum is that it has a more-or-less normal distribution of letters.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pageThree" *ngIf="changeInfoPage.pageThree">
-        <section class="page_404">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12 ">
-                <div class="col-sm-10 col-sm-offset-1  text-center">
-                  <div class="four_zero_four_bg">
-                    <h1 class="text-center ">404</h1>
-                  </div>
-                  <div class="contant_box_404">
-                    <h3 class="h2">
-                      Qué lastima, el contenido se ha acabado...
-                    </h3>
-                    <p>Proximante podras difrutar de nuevos productos!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <br>
-      <nav aria-label="Page navigation example" *ngIf="changeInfoPage.pagination">
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" (click)="changePage('pageOne')">1</a></li>
-          <li class="page-item"><a class="page-link" (click)="changePage('pageTwo')">2</a></li>
-          <li class="page-item"><a class="page-link" (click)="changePage('pageThree')">3</a></li>
-          <li class="page-item"><a class="page-link">..</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav>
-      <br>
     </div>
 
     <!-- CONTENEDORES DE INFORMACION PARA CONTACTO CON LA EMPRESA -->
@@ -401,7 +250,8 @@
                 <form>
                   <div class="row">
                     <div class="form-group col-md-6">
-                      <input id="Full Name" name="Full Name" placeholder="Nombre Completo" class="form-control" type="text">
+                      <input id="Full Name" name="Full Name" placeholder="Nombre Completo" class="form-control"
+                        type="text">
                       <br>
                     </div>
                     <div class="form-group col-md-6">
@@ -415,10 +265,10 @@
                       <input id="Mobile No." name="Mobile No." placeholder="Número telefónico" class="form-control"
                         required="required" type="text">
                       <br>
-                      </div>
-                    
-                      <div class="form-group col-md-6">
-                        <select id="inputState" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <select id="inputState" class="form-control">
                         <option selected>Indicanos el motivo..</option>
                         <option> Postulación</option>
                         <option> Consultas</option>
@@ -448,7 +298,7 @@
       </div>
     </div>
   </div>
-  
+
   <br>
   <br>
 

@@ -1,132 +1,96 @@
 <div class="d-flex" id="wrapper">
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper" style="width: 14%;">
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper" style="width: 14%;">
 
-        <div class="sidebar-heading" id="logo">
-            <a href="home-sistema"> <img src="../assets/logo.jpg" width="100"></a>
-        </div>
-        <div class="list-group list-group-flush" id="menuLista">
-            <a class="list-group-item list-group-item-action bg-light" href="pedidos"><b>Pedidos</b></a>
-            <a class="list-group-item list-group-item-action bg-light" href="#">Productos</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#">Insumos</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#">Contactos</a>
-            <a class="list-group-item list-group-item-action bg-light" href="calendario">Calendario</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#">Informes</a>
-        </div>
+    <div class="sidebar-heading" id="logo">
+      <a href="home-sistema"> <img src="../assets/logo.jpg" width="100"></a>
     </div>
-    <!-- /#sidebar-wrapper -->
+    <div class="list-group list-group-flush" id="menuLista">
+      <a class="list-group-item list-group-item-action bg-light" href="pedidos"><b>Pedidos</b></a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Productos</a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Insumos</a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Contactos</a>
+      <a class="list-group-item list-group-item-action bg-light" href="calendario">Calendario</a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Informes</a>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
 
-        <nav class="navbar navbar-dark bg-dark " id="navbar">
-            <h1 id="titulo">Sistema de Gestión DuctOS</h1>
-            <button type="button" class="btn btn-outline-light" id="sesion" (click)="cerrarSesion()">Cerrar
-                sesión</button>
-        </nav>
+    <nav class="navbar navbar-dark bg-dark " id="navbar">
+      <h1 id="titulo">Sistema de Gestión DuctOS</h1>
+      <button type="button" class="btn btn-outline-light" id="sesion" (click)="cerrarSesion()">Cerrar
+        sesión</button>
+    </nav>
 
-        <section class="content">
-            <!--Aqui van las migas de pan, pero creo que no las necesitaremos-->
-            <br>
-            <h3 id="subtitulo"> Home - Sistema de Gestión</h3>
+    <section class="content">
+      <!--Aqui van las migas de pan, pero creo que no las necesitaremos-->
+      <br>
+      <h3 id="subtitulo"> Home - Sistema de Gestión</h3>
 
-            <div>
-                <div class="row text-center">
-                  <div class="col-md-4">
-                    <div class="btn-group">
-                      <div
-                        class="btn btn-primary"
-                        mwlCalendarPreviousView
-                        [view]="view"
-                        [(viewDate)]="viewDate"
-                        (viewDateChange)="closeOpenMonthViewDay()"
-                      >
-                        Previous
-                      </div>
-                      <div
-                        class="btn btn-outline-secondary"
-                        mwlCalendarToday
-                        [(viewDate)]="viewDate"
-                      >
-                        Today
-                      </div>
-                      <div
-                        class="btn btn-primary"
-                        mwlCalendarNextView
-                        [view]="view"
-                        [(viewDate)]="viewDate"
-                        (viewDateChange)="closeOpenMonthViewDay()"
-                      >
-                        Next
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
-                  </div>
-
-                  <div class="col-md-4">
-                    <div class="btn-group">
-                      <div
-                        class="btn btn-primary"
-                        (click)="setView(calendarView.Month)"
-                        [class.active]="view === calendarView.Month"
-                      >
-                        Month
-                      </div>
-                      <div
-                        class="btn btn-primary"
-                        (click)="setView(calendarView.Week)"
-                        [class.active]="view === calendarView.Week"
-                      >
-                        Week
-                      </div>
-                      <div
-                        class="btn btn-primary"
-                        (click)="setView(calendarView.Day)"
-                        [class.active]="view === calendarView.Day"
-                      >
-                        Day
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <br />
-                
-                <div [ngSwitch]="view">
-                  <mwl-calendar-month-view
-                    *ngSwitchCase="calendarView.Month"
-                    [viewDate]="viewDate"
-                    [events]="events"
-                    [refresh]="refresh"
-                    [activeDayIsOpen]="activeDayIsOpen"
-                    (dayClicked)="dayClicked($event.day)"
-                    (eventClicked)="handleEvent('Clicked', $event.event)"
-                    (eventTimesChanged)="eventTimesChanged($event)"
-                  >
-                  </mwl-calendar-month-view>
-                  <mwl-calendar-week-view
-                    *ngSwitchCase="calendarView.Week"
-                    [viewDate]="viewDate"
-                    [events]="events"
-                    [refresh]="refresh"
-                    (eventClicked)="handleEvent('Clicked', $event.event)"
-                    (eventTimesChanged)="eventTimesChanged($event)"
-                  >
-                  </mwl-calendar-week-view>
-                  <mwl-calendar-day-view
-                    *ngSwitchCase="calendarView.Day"
-                    [viewDate]="viewDate"
-                    [events]="events"
-                    [refresh]="refresh"
-                    (eventClicked)="handleEvent('Clicked', $event.event)"
-                    (eventTimesChanged)="eventTimesChanged($event)"
-                  >
-                  </mwl-calendar-day-view>
-                </div>
+      <div>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <div class="btn-group">
+              <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()">
+                Previous
+              </div>
+              <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+                Today
+              </div>
+              <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()">
+                Next
+              </div>
             </div>
-        </section>
-    </div>
+          </div>
+
+          <div class="col-md-4">
+            <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+          </div>
+
+          <div class="col-md-4">
+            <div class="btn-group">
+              <div class="btn btn-primary" (click)="setView(calendarView.Month)"
+                [class.active]="view === calendarView.Month">
+                Month
+              </div>
+              <div class="btn btn-primary" (click)="setView(calendarView.Week)"
+                [class.active]="view === calendarView.Week">
+                Week
+              </div>
+              <div class="btn btn-primary" (click)="setView(calendarView.Day)"
+                [class.active]="view === calendarView.Day">
+                Day
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <div [ngSwitch]="view">
+          <mwl-calendar-month-view *ngSwitchCase="calendarView.Month" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+             (eventTimesChanged)="eventTimesChanged($event)">
+          </mwl-calendar-month-view>
+
+          <mwl-calendar-week-view *ngSwitchCase="calendarView.Week" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" 
+            (eventTimesChanged)="eventTimesChanged($event)">
+          </mwl-calendar-week-view>
+
+          <mwl-calendar-day-view *ngSwitchCase="calendarView.Day" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" 
+            (eventTimesChanged)="eventTimesChanged($event)">
+          </mwl-calendar-day-view>
+        </div>
+      </div>
+
+    </section>
+    <br /><br />
+  </div>
 </div>
