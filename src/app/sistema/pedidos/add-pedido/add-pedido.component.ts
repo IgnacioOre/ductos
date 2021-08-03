@@ -67,7 +67,7 @@ export class AddPedidoComponent implements OnInit {
         presupuesto: ['',[Validators.required]],
         estadoDelPedido: ['',[Validators.required]],
         estadoDePago: ['',[Validators.required]],
-        abono:['',[Validators.required]],
+        abono:[0,[Validators.required]],
         indicaciones: ['',[Validators.required]],
         URLImagen: ['',[Validators.required]]
       });

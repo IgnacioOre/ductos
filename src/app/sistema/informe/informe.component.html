@@ -1,26 +1,82 @@
-<div class="container">
-    <div class="row">
-      <div id="htmlData">
-        <h2>Lista de videojuegos en stock</h2>
-        <table class="table table-bordered mt-4">
-          <tr class="table-primary">
-            <th>Id</th>
-            <th>Name</th>
-            <th>Platform</th>
-            <th>Reference</th>
-          </tr>
-          <tr *ngFor="let game of VIDEOGAMES">
-            <th>{{game.id}}</th>
-            <td>{{game.name}}</td>
-            <td>{{game.platform}}</td>
-            <td>{{game.reference}}</td>
-          </tr>
-        </table>
-      </div>
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper" style="width: 14%;">
+
+    <div class="sidebar-heading" id="logo">
+      <a href="home"> <img src="../assets/logo.jpg" width="100"></a>
+    </div>
+    <div class="list-group list-group-flush" id="menuLista">
+      <a class="list-group-item list-group-item-action bg-light" href="#"><b>Pedidos</b></a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Productos</a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Insumos</a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Contactos</a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Calendario</a>
+      <a class="list-group-item list-group-item-action bg-light" href="#">Informes</a>
     </div>
   </div>
-  
-  
-  <div>
-    <button class="btn col col-lg-4 btn-danger btn-block ml-4">Download PDF</button>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+
+    <nav class="navbar navbar-dark bg-dark " id="navbar">
+      <h1 id="titulo">Sistema de Gestión DuctOS</h1>
+      <button type="button" class="btn btn-outline-light" id="sesion">Cerrar sesión</button>
+    </nav>
+    
+    <section class="content">
+      <div class="calendario">
+        <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
+        </ngb-datepicker>
+        
+        <ng-template #t let-date let-focused="focused">
+          <span class="custom-day"
+                [class.focused]="focused"
+                [class.range]="isRange(date)"
+                [class.faded]="isHovered(date) || isInside(date)"
+                (mouseenter)="hoveredDate = date"
+                (mouseleave)="hoveredDate = null">
+            {{ date.day }}
+          </span>
+        </ng-template>
+
+      </div>
+      <br>
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary" (click)="generarInforme()" >Generar informe</button>
+      </div>
+      
+      
+      <hr>
+      
+
+      <div class="container">
+        <div class="row justify-content-md-center">
+            <div class ="col-md-6">
+              <div class="card" style="width: 18rem;" *ngIf="datosCargados">
+                <div class="card-body">
+                  <h5 class="card-title">Total presupuestos: {{totalIngresos | currency :'CLP' : '$' }}</h5>
+                  <h5 class="card-title">Pedidos pagados: {{totalPedidos}}</h5>
+                </div>
+              </div>
+            </div>
+
+            <div class ="col-md-6">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      
+    </section>
   </div>
+</div>
+

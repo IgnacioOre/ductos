@@ -37,7 +37,8 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CommonModule } from '@angular/common';
 import { FlatpickrModule } from 'angularx-flatpickr';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxDateRangeModule } from 'ngx-daterange';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,9 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     }),
     CommonModule,
     NgbModalModule,
-    FlatpickrModule.forRoot()
+    NgbModule,
+    FlatpickrModule.forRoot(),
+    NgxDateRangeModule
   ],
   providers: [LoginGuard],
   bootstrap: [AppComponent]
