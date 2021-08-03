@@ -4,16 +4,16 @@
     <div class="bg-light border-right" id="sidebar-wrapper" style="width: 14%;">
   
       <div class="sidebar-heading" id="logo">
-        <a href="home"> <img src="../assets/logo.jpg" width="100"></a>
+        <a href="home-sistema"> <img src="../assets/logo.jpg" width="100"></a>
       </div>
       <div class="list-group list-group-flush" id="menuLista">
-        <a class="list-group-item list-group-item-action bg-light" href="#"><b>Pedidos</b></a>
-        <a class="list-group-item list-group-item-action bg-light" href="#">Productos</a>
-        <a class="list-group-item list-group-item-action bg-light" href="#">Insumos</a>
-        <a class="list-group-item list-group-item-action bg-light" href="#">Contactos</a>
-        <a class="list-group-item list-group-item-action bg-light" href="#">Calendario</a>
-        <a class="list-group-item list-group-item-action bg-light" href="#">Informes</a>
-      </div>
+        <a class="list-group-item list-group-item-action bg-light" href="pedidos">Pedidos</a>
+        <a class="list-group-item list-group-item-action bg-light" href="productos">Productos</a>
+        <a class="list-group-item list-group-item-action bg-light" href="insumos">Insumos</a>
+        <a class="list-group-item list-group-item-action bg-light" href="cliente"><b>Clientes</b></a>
+        <a class="list-group-item list-group-item-action bg-light" href="calendario">Calendario</a>
+        <a class="list-group-item list-group-item-action bg-light" href="informe">Informes</a>
+    </div>
     </div>
     <!-- /#sidebar-wrapper -->
   
@@ -28,7 +28,7 @@
       <section class="content">
         <!--Aqui van las migas de pan, pero creo que no las necesitaremos-->
         <br>
-        <h3 id="subtitulo"> Gestión de Contactos </h3>
+        <h3 id="subtitulo"> Gestión de Clientes </h3>
         <div class="card mb-3 text-center">
           <div class="card-body text-primary">
             <div class="table-responsive">
@@ -38,11 +38,12 @@
                     <th scope="col">#</th>
                     <th scope="col">Rut</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
+                    <th scope="col">Apellido Paterno</th>
+                    <th scope="col">Apellido Materno</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Teléfono de contacto</th>
                     <th scope="col">Dirección</th>
-                    <th></th>
-                    <th></th>
+                   
                     <th style="text-align: left"><button class="btn btn-success" type="button"
                         (click)="abrirModal()">Añadir</button></th>
                   </tr>

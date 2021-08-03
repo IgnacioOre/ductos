@@ -186,7 +186,7 @@
 
         <div class="card-deck d-flex align-content-between flex-wrap" id="productosCard" >
           <div class="card w-25 mx-2 " *ngFor="let item of productos; let i = index">
-            <img class="card-img-top img-thumbnail" src="{{(item.imagenProducto) || '../assets/ghost-product.png'}}"
+            <img class="card-img-top img-thumbnail" src="{{(item.imagenProducto) || '../assets/imagenNoDisponible.png'}}"
               alt="Card image cap">
             <div class="card-body" >
               <h5 class="card-title">{{item.nombreProducto}}</h5>
