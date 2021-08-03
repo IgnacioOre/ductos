@@ -71,7 +71,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AgregarInsumosComponent,
     EditProductoComponent,
     DetailProductoComponent,
-    RegistrarseComponent
+    RegistrarseComponent,
   ],
   imports: [
     BrowserModule,
