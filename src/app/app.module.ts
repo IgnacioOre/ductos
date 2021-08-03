@@ -102,7 +102,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NgbModalModule,
     NgbModule,
     FlatpickrModule.forRoot(),
-    NgxDateRangeModule
+    NgxDateRangeModule,
+    BrowserAnimationsModule
   ],
   providers: [LoginGuard, DatePipe],
   bootstrap: [AppComponent]
