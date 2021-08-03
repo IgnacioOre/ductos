@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/IProducto';
 import { ProductosService } from './productos.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-productos',
@@ -15,7 +16,9 @@ export class ProductosComponent implements OnInit {
   p: number = 1;
 
 
-  constructor(public productosService: ProductosService,public _DomSanitizationService : DomSanitizer) { }
+  constructor(public productosService: ProductosService,
+    public _DomSanitizationService : DomSanitizer,
+    public loginService: LoginService ) { }
 
   ngOnInit(): void {
     this.getProductos();
@@ -55,5 +58,9 @@ export class ProductosComponent implements OnInit {
       console.log(res);
       this.getProductos();
     });
+  }
+
+  cerrarSesion(){
+    this.loginService.logout();
   }
 }

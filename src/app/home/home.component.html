@@ -186,7 +186,7 @@
 
         <div class="card-deck d-flex align-content-between flex-wrap" id="productosCard" >
           <div class="card w-25 mx-2 " *ngFor="let item of productos; let i = index">
-            <img class="card-img-top img-thumbnail" src="{{(item.imagenProducto) || '../assets/ghost-product.png'}}"
+            <img class="card-img-top img-thumbnail" src="{{(item.imagenProducto) || '../assets/imagenNoDisponible.png'}}"
               alt="Card image cap">
             <div class="card-body" >
               <h5 class="card-title">{{item.nombreProducto}}</h5>
@@ -210,39 +210,26 @@
 
               <h5>Dirección:</h5>
               <ul class="list-unstyled">
-                <li> Universidad Hogwarts de Magia y Hechicería</li>
-                <li> PO Box 95645</li>
-                <li> Escocia, NM 5688-3321</li>
+                <li> Población El Roble, calle el pino, #341</li>
+                <li> Chillán, Chile</li>
               </ul>
             </div>
             <div class="email">
-              <h5>Email:</h5>
+              <h5>Contactos:</h5>
               <ul class="list-unstyled">
-                <li> estudiaEnHogarts@recepcion.com</li>
-                <li> hogwartsUniversity@recepcion.com</li>
+                <li> ducOS@gmail.com</li>
+                <li> Instagram: Ductos_Ortiz</li>
               </ul>
             </div>
             <div class="phone">
               <h5>Telefono:</h5>
               <ul class="list-unstyled">
-                <li> +91- 880025667834</li>
-                <li> +91- 880034987534</li>
+                <li> +569 66357896</li>
+                <li> 42 2 245638</li>
               </ul>
             </div>
             <hr>
-            <div class="social">
-              <ul class="list-inline list-unstyled">
-                <li class="list-inline-item">
-                  <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#"><i class="fa fa-youtube-play fa-2x"></i></a>
-                </li>
-              </ul>
-            </div>
+            
           </div>
           <div class="col-md-8">
             <div class="card">
@@ -269,11 +256,11 @@
 
                     <div class="form-group col-md-6">
                       <select id="inputState" class="form-control">
-                        <option selected>Indicanos el motivo..</option>
-                        <option> Postulación</option>
+                        <option selected>Indicanos el motivo</option>
                         <option> Consultas</option>
                         <option> Reclamos</option>
                         <option> Visitar Centro</option>
+                        <option> Otros</option>
                       </select>
                     </div>
 
@@ -288,7 +275,7 @@
                   <br>
 
                   <div class="form-row">
-                    <button type="button" class="btn btn-danger">Submit</button>
+                    <button type="button" class="btn btn-danger">Enviar</button>
                   </div>
                 </form>
               </div>

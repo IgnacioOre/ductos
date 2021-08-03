@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Insumo } from 'src/app/models/IInsumo';
+import { LoginService } from 'src/app/services/login/login.service';
 import { InsumosService } from './insumos.service';
 
 @Component({
@@ -13,7 +14,9 @@ export class InsumosComponent implements OnInit {
   insumosCargados : boolean;
   p : number = 0;
 
-  constructor(public insumosService : InsumosService, public _DomSanitizationService : DomSanitizer) { }
+  constructor(public insumosService : InsumosService, 
+    public _DomSanitizationService : DomSanitizer,
+    public loginService: LoginService) { }
 
   ngOnInit(): void {
     this.getInsumos();
@@ -49,5 +52,8 @@ export class InsumosComponent implements OnInit {
     })
   };
   
+  cerrarSesion() {
+    this.loginService.logout();
+  }
 
 }
