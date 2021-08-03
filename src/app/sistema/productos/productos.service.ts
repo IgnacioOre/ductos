@@ -103,6 +103,10 @@ export class ProductosService {
     return this.nombre;
   }
 
+  getId(){
+    
+  }
+
   
 
 }

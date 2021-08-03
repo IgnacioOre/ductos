@@ -17,8 +17,7 @@ export class RegistrarseComponent implements OnInit {
     this.formUsuario = this.formBuilder.group({
       nombreUsuario: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      contraseña1: ['', [Validators.required]],
-      contraseña2: ['', [Validators.required]]
+      contraseña: ['', [Validators.required]]
     });
 
   }
@@ -35,8 +34,7 @@ export class RegistrarseComponent implements OnInit {
       this.formUsuario = this.formBuilder.group({
         nombreUsuario: ['', [Validators.required]],
         email: ['', [Validators.required]],
-        contraseña1: ['', [Validators.required]],
-        contraseña2: ['', [Validators.required]]
+        contraseña: ['', [Validators.required]]
       });
     })
   }
