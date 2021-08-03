@@ -4,6 +4,7 @@ import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap/';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-date';
 import { InformeService } from './informe.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginService } from 'src/app/services/login/login.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class InformeComponent implements OnInit {
   fromDate: NgbDate;
   toDate: NgbDate | null = null;
   
-  constructor(public informeService : InformeService, calendar: NgbCalendar) { 
+  constructor(public informeService : InformeService, calendar: NgbCalendar, public loginService: LoginService) { 
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
   }
@@ -76,6 +77,10 @@ export class InformeComponent implements OnInit {
 
   isRange(date: NgbDate) {
     return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
+  }
+
+  cerrarSesion() {
+    this.loginService.logout();
   }
 
 }

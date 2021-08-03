@@ -16,7 +16,9 @@ export class PedidosComponent implements OnInit {
   pedidos : Pedido[] = [];
 
   p: number = 1;
-  constructor(public addPedidoService:AddPedidoService, public pedidosService: PedidosService, public loginService : LoginService,
+  constructor(public addPedidoService:AddPedidoService, 
+    public pedidosService: PedidosService, 
+    public loginService : LoginService,
     public router : Router) { 
       /* Datos de prueba para pruebas
       this.pedidos = Array(50).fill(1).map(_ => {
