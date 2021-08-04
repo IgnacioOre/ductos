@@ -35,7 +35,7 @@ export class LoginService {
   }
 
   registrarse(usuario: Usuario){
-    return this.http.post('http://localhost:3000/registrarse', usuario).pipe(map((res: any) => {
+    return this.http.post('http://localhost:3000/usuario', usuario).pipe(map((res: any) => {
       console.log(res);
       this.router.navigate(['login']);
     }));

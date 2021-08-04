@@ -3,7 +3,6 @@ import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef, OnInit} fro
 
 import {
   CalendarEvent,
-  CalendarEventAction,
   CalendarEventTimesChangedEvent,
   CalendarView
 } from 'angular-calendar';

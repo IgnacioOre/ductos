@@ -24,12 +24,45 @@
                         <div class="card-deck">
                             <div *ngIf="insumosCargados">
                                 <div *ngFor="let item of insumosDisponibles; let i = index">
+                                    <div id="accordion">
+                                        <div class="card">
+                                            <div class="card-header" id="heading">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-bs-toggle="collapse"
+                                                        attr.data-bs-target="#collapse{{i}}" aria-expanded="false"
+                                                        attr.aria-controls="collapse{{i}}">
 
-                                    <label class="checkbox-inline" (change)="toggle($event)">
-                                        <input type="checkbox" [attr.id]="'checkboxEnLinea'+i" 
-                                        [attr.value]=item.insumoNombre>
-                                        {{item.insumoNombre}}
-                                    </label>
+                                                        <label class="checkbox-inline" (change)="toggle($event)">
+                                                            <input type="checkbox" [attr.id]="'checkboxEnLinea'+i"
+                                                                [attr.value]=item.insumoId
+                                                                [attr.aria-controls]="'checkboxEnLinea'+i">
+                                                            {{item.insumoNombre}}
+                                                        </label>
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse{{i}}" class="accordion-collapse collapse "
+                                                attr.aria-labelledby="heading" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <label>
+                                                        <b>Cantidad: </b>
+                                                        <input type="number" #cantidad (change)="capturar($event, cantidad.value)"
+                                                            [attr.value]="cantidad.value">
+
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
 
                                 </div>
                             </div>
