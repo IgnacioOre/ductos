@@ -43,6 +43,7 @@ import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDateRangeModule } from 'ngx-daterange';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { OlvidarPasswordComponent } from './login/olvidar-password/olvidar-password.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     EditProductoComponent,
     DetailProductoComponent,
     RegistrarseComponent,
+    OlvidarPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +95,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
       {path: 'insumos', component: InsumosComponent, canActivate: [LoginGuard]},
       {path: 'informe', component: InformeComponent, canActivate: [LoginGuard]},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
-      {path: 'registrarse', component: RegistrarseComponent}
+      {path: 'registrarse', component: RegistrarseComponent},
+      {path: 'recuperarPassword', component: OlvidarPasswordComponent}
     ]),
     CalendarModule.forRoot({
       provide: DateAdapter, useFactory: adapterFactory
