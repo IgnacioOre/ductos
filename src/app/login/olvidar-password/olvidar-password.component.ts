@@ -33,5 +33,4 @@ export class OlvidarPasswordComponent implements OnInit {
       });
     })
   }
-
 }
