@@ -9,11 +9,13 @@ export class EnviarEmailService {
   constructor(private http: HttpClient) {
   }
 
-  sendCorreo() {
-    this.http.post("/sendemail?token="+localStorage.getItem('token'), "ysalejandra@gmail.com").subscribe(data => {
-      console.log(data);
-    });
-
+  enviarEmail(codigo: any, correo: any) {
+    var body = {
+      email: correo,
+      codigo: codigo
+      
+    };
+    return this.http.post('http://localhost:3000/sendemail?token='+localStorage.getItem('token'), body);
   }
 
 

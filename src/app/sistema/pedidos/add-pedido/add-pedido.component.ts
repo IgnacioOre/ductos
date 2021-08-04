@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MostrarConfirmacionService } from 'src/app/sistema/pedidos/confirmacion/mostrar-confirmacion.service';
 import { Pedido } from 'src/app/models/IPedido';
 import { AddPedidoService } from './add-pedido-service';
+import { EnviarEmailService } from '../enviarEmail/enviar-email.service';
 
 @Component({
   selector: 'app-add-pedido',
@@ -25,7 +26,8 @@ export class AddPedidoComponent implements OnInit {
 
   @Input() getPedidos: Function;
 
-  constructor(public addPedidoService: AddPedidoService, private formBuilder: FormBuilder,
+  constructor(public addPedidoService: AddPedidoService, private formBuilder: FormBuilder, 
+    public enviarEmailService: EnviarEmailService,
     public mostrarConfirmacionService: MostrarConfirmacionService, private http: HttpClient,
     public _DomSanitizationService: DomSanitizer, public router: Router) {
     this.formPedido = this.formBuilder.group({
@@ -120,7 +122,7 @@ export class AddPedidoComponent implements OnInit {
   }
 
   enviarCorreo() {
-    this.addPedidoService.enviarEmail(this.formPedido.controls['codigo'].value, this.formPedido.controls['email'].value).subscribe(res => {
+    this.enviarEmailService.enviarEmail(this.formPedido.controls['codigo'].value, this.formPedido.controls['email'].value).subscribe(res => {
       console.log(res);
     });
   }

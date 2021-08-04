@@ -30,15 +30,4 @@ export class AddPedidoService {
     return this.http.post('http://localhost:3000/pedido/:id?token='+localStorage.getItem('token'), imagen);
   }
 
-  enviarEmail(codigo: any, correo: any) {
-    console.log("codigo: " + codigo);
-    console.log("corr: " + correo);
-    var body = {
-      email: correo,
-      codigo: codigo
-      
-    };
-    return this.http.post('http://localhost:3000/sendemail?token='+localStorage.getItem('token'), body);
-  }
-
 }
