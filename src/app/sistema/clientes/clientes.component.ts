@@ -15,11 +15,15 @@ export class ClientesComponent implements OnInit {
   clientes: Cliente[] = [];
 
   p: number = 1;
+  rol : string = "";
 
   constructor(public addClienteService:AddClienteService, public clientesService: ClientesService,public loginService : LoginService) { }
 
   ngOnInit(): void {
     this.getClientes();
+    if (localStorage.getItem('rol') != null) {
+      this.rol = localStorage.getItem('rol')!;
+    }
   }
   
   cerrarSesion() {

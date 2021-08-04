@@ -14,7 +14,7 @@ export class ProductosComponent implements OnInit {
   productosCargados:boolean= false;
   productos: Producto[] = [];
   p: number = 1;
-
+  rol : string = "";
 
   constructor(public productosService: ProductosService,
     public _DomSanitizationService : DomSanitizer,
@@ -22,6 +22,9 @@ export class ProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductos();
+    if (localStorage.getItem('rol') != null) {
+      this.rol = localStorage.getItem('rol')!;
+    }
   }
   
   abrirModal(){

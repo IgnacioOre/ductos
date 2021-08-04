@@ -14,6 +14,7 @@ import { PedidosService } from './pedidos.service';
 export class PedidosComponent implements OnInit {
   pedidosCargados : boolean = false;
   pedidos : Pedido[] = [];
+  rol : string = "";
 
   p: number = 1;
   constructor(public addPedidoService:AddPedidoService, 
@@ -43,6 +44,9 @@ export class PedidosComponent implements OnInit {
   
   ngOnInit(): void {
     this.getPedidos();
+    if (localStorage.getItem('rol') != null) {
+      this.rol = localStorage.getItem('rol')!;
+    }
   }
 
   

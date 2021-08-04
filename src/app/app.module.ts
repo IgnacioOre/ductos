@@ -18,7 +18,6 @@ import { AddPedidoComponent } from './sistema/pedidos/add-pedido/add-pedido.comp
 import { InsumosComponent } from './sistema/insumos/insumos.component';
 import { CalendarioComponent } from './sistema/calendario/calendario.component';
 import { ClientesComponent } from './sistema/clientes/clientes.component';
-import { InformesComponent } from './sistema/informes/informes.component';
 import { ProductosComponent } from './sistema/productos/productos.component';
 import { AddClienteComponent } from './sistema/clientes/add-cliente/add-cliente.component';
 import { EditClienteComponent } from './sistema/clientes/edit-cliente/edit-cliente.component';
@@ -44,6 +43,7 @@ import { NgxDateRangeModule } from 'ngx-daterange';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { OlvidarPasswordComponent } from './login/olvidar-password/olvidar-password.component';
+import { InformeGuard } from './sistema/informe/informe.guard';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,6 @@ import { OlvidarPasswordComponent } from './login/olvidar-password/olvidar-passw
     InsumosComponent,
     ClientesComponent,
     CalendarioComponent,
-    InformesComponent,
     ProductosComponent,
     AddClienteComponent,
     EditClienteComponent, 
@@ -93,7 +92,7 @@ import { OlvidarPasswordComponent } from './login/olvidar-password/olvidar-passw
       {path: 'home-sistema', component: HomeSistemaComponent, canActivate: [LoginGuard]},
       {path: 'calendario', component: CalendarioComponent, canActivate: [LoginGuard] },
       {path: 'insumos', component: InsumosComponent, canActivate: [LoginGuard]},
-      {path: 'informe', component: InformeComponent, canActivate: [LoginGuard]},
+      {path: 'informe', component: InformeComponent, canActivate: [InformeGuard]},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'registrarse', component: RegistrarseComponent},
       {path: 'recuperarPassword', component: OlvidarPasswordComponent}

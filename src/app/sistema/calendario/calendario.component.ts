@@ -49,10 +49,15 @@ export class CalendarioComponent implements OnInit {
 
   activeDayIsOpen: boolean = true;  
 
+  rol : string = "";
+
   constructor(private loginService: LoginService, private modal: NgbModal,
     private calendarioService: CalendarioServiceService) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('rol') != null) {
+      this.rol = localStorage.getItem('rol')!;
+    }
     this.calendarioService.getPedidos().subscribe(res => {
       this.pedidosCalendario = res;
       for(let i = 0 ; i < res.length; i++){

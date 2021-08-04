@@ -13,6 +13,7 @@ export class InsumosComponent implements OnInit {
   insumos : Insumo[];
   insumosCargados : boolean;
   p : number = 0;
+  rol : string = "";
 
   constructor(public insumosService : InsumosService, 
     public _DomSanitizationService : DomSanitizer,
@@ -20,6 +21,9 @@ export class InsumosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getInsumos();
+    if (localStorage.getItem('rol') != null) {
+      this.rol = localStorage.getItem('rol')!;
+    }
   }
 
   getInsumos() {

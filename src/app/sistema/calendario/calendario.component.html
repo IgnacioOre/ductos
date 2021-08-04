@@ -11,7 +11,7 @@
       <a class="list-group-item list-group-item-action bg-light" href="insumos">Insumos</a>
       <a class="list-group-item list-group-item-action bg-light" href="cliente">Clientes</a>
       <a class="list-group-item list-group-item-action bg-light" href="calendario"><b>Calendario</b></a>
-      <a class="list-group-item list-group-item-action bg-light" href="informe">Informes</a>
+      <a class="list-group-item list-group-item-action bg-light" href="informe" *ngIf="rol == 'Admin'">Informes</a>
   </div>
   </div>
   <!-- /#sidebar-wrapper -->

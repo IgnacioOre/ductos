@@ -28,7 +28,7 @@ export class DetailProductoComponent implements OnInit {
     });
 
     this.productoActual = this.productosService.productoActual;
-    //this.previsualizacion = this.productoActual.imagenProducto;
+    this.previsualizacion = this.productoActual.imagenProducto;
 
   }
 
