@@ -42,4 +42,11 @@ export class LoginService {
 
 
   }
+  recuperarPassword(usuario: Usuario){
+    return this.http.post('http://localhost:3000/recuperarPassword', usuario).pipe(map((res: any) => {
+      console.log(res);
+      window.alert("Contraseña cambiada con exito");
+      this.router.navigate(['login']);
+    }));
+  }
 }
