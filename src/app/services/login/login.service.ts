@@ -39,7 +39,5 @@ export class LoginService {
       console.log(res);
       this.router.navigate(['login']);
     }));
-
-
   }
 }
