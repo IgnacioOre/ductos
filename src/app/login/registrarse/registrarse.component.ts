@@ -19,12 +19,9 @@ export class RegistrarseComponent implements OnInit {
       email: ['', [Validators.required]],
       contraseña: ['', [Validators.required]]
     });
-
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   registrarse() {
     var usuario: Usuario = this.formUsuario.value;
