@@ -39,8 +39,6 @@ export class LoginService {
       console.log(res);
      
     }));
-
-
   }
   recuperarPassword(usuario: Usuario){
     return this.http.post('http://localhost:3000/recuperarPassword', usuario).pipe(map((res: any) => {
